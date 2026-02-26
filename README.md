@@ -4,8 +4,6 @@
 
 **Rebuild In Minimal**
 
-CSS that earns its place.
-
 [Documentation](https://ronish-maharjan.github.io/rim/) ·
 [Getting Started](#getting-started) ·
 [Components](#components) ·
@@ -158,8 +156,7 @@ RIM CSS was born from frustration with CSS libraries that either do too much hun
 This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
 
 <div align="center">
-RIM CSS - CSS that earns its place.
 
-Made with love by @ronish-maharjan
+Made with coffee by @ronish-maharjan
 
 </div>
