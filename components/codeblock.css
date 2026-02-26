@@ -1,0 +1,59 @@
+/* ================================================
+   RIM CSS — Code Block Enhanced Component
+   
+   Wraps <pre><code> with an optional filename label.
+   The label sits on top like a terminal tab.
+   
+   Usage:
+     <div data-is="codeblock">
+       <pre><code>your code here</code></pre>
+     </div>
+
+     With filename:
+     <div data-is="codeblock" data-label="index.html">
+       <pre><code>your code here</code></pre>
+     </div>
+   ================================================ */
+
+@layer rim-components {
+
+    [data-is="codeblock"] {
+        position: relative;
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        background-color: var(--rim-code-bg);
+        overflow-x: auto;
+        z-index: 0;
+    }
+
+    /* Reset the <pre> inside — codeblock owns the borders now */
+    [data-is="codeblock"] pre {
+        margin: 0;
+        border: none;
+        background: none;
+    }
+
+    [data-is="codeblock"] pre code {
+        border: none;
+        background: none;
+    }
+
+
+    /* ================================
+     FILENAME LABEL
+     Generated from data-label attribute.
+     Sits on top like a terminal tab header.
+     Monospace font. Muted. Functional.
+     ================================ */
+    [data-is="codeblock"][data-label]::before {
+        content: attr(data-label);
+        display: block;
+        padding: var(--rim-space-2) var(--rim-space-4);
+        font-family: var(--rim-font-code);
+        font-size: var(--rim-text-xs);
+        color: var(--rim-muted);
+        background-color: var(--rim-surface);
+        border-bottom: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        letter-spacing: var(--rim-tracking-wide);
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "name": "rim-css",
+    "version": "0.1.0",
+    "description": "Raw Intentional Minimal — CSS that earns its place",
+    "main": "dist/rim.css",
+    "files": [
+        "dist/",
+        "core/",
+        "layout/",
+        "components/",
+        "rim.css"
+    ],
+    "scripts": {
+        "build": "node build.js",
+        "dev": "echo 'Open preview.html in your browser. Edit CSS. Refresh.'"
+    },
+    "keywords": [
+        "css",
+        "css-library",
+        "minimal",
+        "classless",
+        "semantic",
+        "neo-brutalism",
+        "design-system",
+        "dark-mode",
+        "css-variables",
+        "zero-dependencies"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourname/rim-css"
+    },
+    "author": "Your Name",
+    "license": "MIT",
+    "homepage": "https://yourname.github.io/rim-css/",
+    "bugs": {
+        "url": "https://github.com/yourname/rim-css/issues"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}

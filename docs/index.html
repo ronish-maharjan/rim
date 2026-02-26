@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <title>RIM UI - Rebuilt In Minimal</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="../rim.css">
+    <link rel="stylesheet" href="custom.css">
+</head>
+
+<body>
+    <header class="header">
+        <!-- Big screen nav -->
+        <nav class="header__nav">
+            <ul class="header__nav__list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="https://github.com/ronish-maharjan/rim">Github</a></li>
+            </ul>
+        </nav>
+
+        <!-- MOBILE NAV -->
+        <div class="mobile-nav">
+            <details data-is="dropdown" data-variant="menu">
+                <summary>Navigation</summary>
+                <ul>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#typography">Typography</a></li>
+                    <li><a href="#button">Button</a></li>
+                    <li><a href="#card">Card</a></li>
+                    <li><a href="#callout">Callout</a></li>
+                    <li><a href="#dropdown">Dropdown</a></li>
+                    <li><a href="#themes">Themes</a></li>
+                    <li><a href="#customization">Customization</a></li>
+                </ul>
+            </details>
+        </div>
+        <button data-toggle-theme data-size="sm" data-variant="accent">◐ Toggle Theme</button>
+    </header>
+    <div data-is="sidebar" data-sidebar="wider">
+        <aside class="sidebar">
+            <nav data-is="dropdown-group">
+                <p>RIM UI - v0.1.0</p>
+
+                <a href="https://github.com/ronish-maharjan/rim">Github</a>
+                <a href="#getting-started">Getting Started</a>
+                <a href="#tokens">Design Tokens</a>
+                <a href="#customization">Customization</a>
+                <!-- For Components Dropdown-->
+                <details data-is="dropdown" open>
+                    <summary>Components</summary>
+                    <ul>
+                        <li><a href="#typography">Typography</a></li>
+                        <li><a href="#breadcrumb">Breadcrumb</a></li>
+                        <li><a href="#button">Button</a></li>
+                        <li><a href="#callout">Callout</a></li>
+                        <li><a href="#card">Card</a></li>
+                        <li><a href="#codeblock">Code Block</a></li>
+                        <li><a href="#divider">Divider</a></li>
+                        <li><a href="#dropdown">Dropdown</a></li>
+                        <li><a href="#forms">Forms</a></li>
+                        <li><a href="#tag">Tags</a></li>
+                        <li><a href="#tables">Tables</a></li>
+                        <li><a href="#toc">Table of Contents</a></li>
+
+                    </ul>
+                </details>
+
+                <!-- For Layout Dropdown -->
+                <details data-is="dropdown">
+                    <summary>Layout</summary>
+                    <ul>
+                        <li><a href="#container">Container</a></li>
+                        <li><a href="#stack">Stack</a></li>
+                        <li><a href="#grid">Grid</a></li>
+                        <li><a href="#sidebar">Sidebar</a></li>
+                    </ul>
+                </details>
+
+            </nav>
+        </aside>
+
+        <main data-is="container">
+
+            <!-- Heoro section -->
+            <section class="hero__section" id="home">
+                <header data-is="stack">
+                    <h1>RIM UI — Rebuild in Minimal</h1>
+                    <p>
+                        <mark><strong>RIM</strong></mark> is a CSS library where every element has a purpose.
+                        No dependencies, No build tools, Write in semantic HTML, looks great and ships fast.
+                    </p>
+
+                    <div>
+                        <span data-is="tag">v0.1.0</span>
+                        <span data-is="tag">0 dependencies</span>
+                        <span data-is="tag" data-variant="accent">Pure CSS</span>
+                    </div>
+                </header>
+
+                <!-- hero card section -->
+                <section data-is="grid" data-cols="2">
+                    <div data-is="card">
+                        <h4>Neo-Brutalist Design Style</h4>
+                        <p>Clean, sharp and structured design with bold edges and subtle textures every element has a
+                            purpose.</p>
+                        <div>
+                            <span data-is="tag">CSS</span>
+                            <span data-is="tag">Design</span>
+                        </div>
+                    </div>
+                    <div data-is="card">
+                        <h4>Design Tokens</h4>
+                        <p>All colors, spacing, typography and borders are defined as tokens are fully consistent and
+                            easy
+                            to
+                            customize.</p>
+                        <div>
+                            <span data-is="tag">CSS</span>
+                            <span data-is="tag">Tokens</span>
+                            <span data-is="tag">Variables</span>
+                        </div>
+                    </div>
+                    <div data-is="card">
+                        <h4>Semantic HTML First</h4>
+                        <p>All default elements are styled automatically. Write semantic HTML keeping markup clean and
+                            meaningful.</p>
+                        <div>
+                            <span data-is="tag">HTML</span>
+                            <span data-is="tag">Semantic</span>
+                        </div>
+                    </div>
+                    <div data-is="card">
+                        <h4>Themes</h4>
+                        <p>Built-in light and dark themes. Switch easily without adding extra CSS or breaking layout.
+                        </p>
+                        <div>
+                            <span data-is="tag">Themes</span>
+                            <span data-is="tag">Dark Mode</span>
+                            <span data-is="tag">Light Mode</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hero Why section -->
+                <section>
+                    <h3>Why I Build This?</h3>
+                    <p>This was built to make website creation fast, easy and simple with clean and
+                        professional touch of neo-brutalist minimalism.
+
+                        Most of the styling is already done, so I don’t need to write CSS for basic elements. I only add
+                        custom styles when necessary. Semantic HTML works out of the box giving me a solid structured
+                        foundation along with full flexibility.</p>
+                </section>
+            </section>
+
+            <hr data-is="divider">
+
+            <!-- get start section -->
+            <section data-is="stack" data-gap="lg" id="getting-started">
+
+                <h2>Getting Started</h2>
+                <p>Three steps. No npm. No configuration. No build tools.</p>
+
+                <h3>1. Add RIM CSS</h3>
+                <div data-is="codeblock" data-label="index.html">
+                    <pre><code>&lt;link rel="stylesheet" href="path/to/rim.css"&gt;</code></pre>
+                </div>
+
+                <p>Or use a CDN from GitHub:</p>
+                <div data-is="codeblock" data-label="CDN">
+                    <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ronish-maharjan/rim@v0.1.0/dist/rim.min.css"&gt;</code></pre>
+                </div>
+
+                <h3>2. Add Fonts (recommended)</h3>
+                <p>
+                    RIM CSS works without these fonts using system fallbacks.
+                    But for the full experience, add this to your
+                    <code>&lt;head&gt;</code>:
+                </p>
+
+                <div data-is="codeblock" data-label="index.html">
+                    <pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"&gt;</code></pre>
+                </div>
+                <h3>3. Set Theme</h3>
+                <div data-is="codeblock" data-label="index.html">
+                    <pre><code>&lt;html lang="en" data-theme="light"&gt;</code></pre>
+                </div>
+
+                <h3>Complete Starter</h3>
+                <div data-is="codeblock" data-label="index.html">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" data-theme="light"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My Site&lt;/title&gt;
+  &lt;link rel="stylesheet" href="rim.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div data-is="container-reading"&gt;
+    &lt;div data-is="stack"&gt;
+      &lt;h1&gt;Hello, RIM.&lt;/h1&gt;
+      &lt;p&gt;CSS that earns its place.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+
+                <div data-is="callout" data-variant="info">
+                    <p>
+                        <strong>That's it.</strong> No configuration files. No
+                        JavaScript imports. No package manager. Just HTML and CSS.
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- Design tokens section -->
+
+            <section id="tokens" data-is="stack">
+                <h2>Design Tokens</h2>
+                <p>
+                    Every visual decision in RIM CSS is a CSS custom property.
+                    Override any token to customize the library.
+                </p>
+
+                <h3>Colors</h3>
+                <div data-is="codeblock">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Token</th>
+                                <th>Light</th>
+                                <th>Dark</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>--rim-bg</code></td>
+                                <td>#f4f5f7</td>
+                                <td>#000000</td>
+                                <td>Page background</td>
+                            </tr>
+                            <tr>
+                                <td><code>--rim-text</code></td>
+                                <td>#000000</td>
+                                <td>#ffffff</td>
+                                <td>Primary text</td>
+                            </tr>
+                            <tr>
+                                <td><code>--rim-accent</code></td>
+                                <td>#b45309</td>
+                                <td>#22c55e</td>
+                                <td>Accent color</td>
+                            </tr>
+                            <tr>
+                                <td><code>--rim-muted</code></td>
+                                <td>#6b7280</td>
+                                <td>#9ca3af</td>
+                                <td>Secondary text</td>
+                            </tr>
+                            <tr>
+                                <td><code>--rim-border</code></td>
+                                <td>#000000</td>
+                                <td>#333333</td>
+                                <td>Border color</td>
+                            </tr>
+                            <tr>
+                                <td><code>--rim-surface</code></td>
+                                <td>#ffffff</td>
+                                <td>#111111</td>
+                                <td>Card/input backgrounds</td>
+                            </tr>
+                            <tr>
+                                <td><code>--rim-code-bg</code></td>
+                                <td>#e9ebef</td>
+                                <td>#1a1a1a</td>
+                                <td>Code backgrounds</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Typography</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Token</th>
+                            <th>Value</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>--rim-font-heading</code></td>
+                            <td>Space Grotesk</td>
+                            <td>Headings</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-font-body</code></td>
+                            <td>Inter</td>
+                            <td>Body text</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-font-code</code></td>
+                            <td>Fira Code</td>
+                            <td>Code elements</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Spacing Scale</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Token</th>
+                            <th>Value</th>
+                            <th>Pixels</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>--rim-space-1</code></td>
+                            <td>0.25rem</td>
+                            <td>4px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-space-2</code></td>
+                            <td>0.5rem</td>
+                            <td>8px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-space-3</code></td>
+                            <td>0.75rem</td>
+                            <td>12px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-space-4</code></td>
+                            <td>1rem</td>
+                            <td>16px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-space-5</code></td>
+                            <td>1.5rem</td>
+                            <td>24px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-space-6</code></td>
+                            <td>2rem</td>
+                            <td>32px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-space-7</code></td>
+                            <td>3rem</td>
+                            <td>48px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--rim-space-8</code></td>
+                            <td>4rem</td>
+                            <td>64px</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Typography section -->
+            <section id="typography" data-is="stack" data-gap="lg">
+                <h2>Typography</h2>
+                <p>
+                    Headings use Space Grotesk.Body uses Inter and other code stuffs uses FiraCode. I choosed this fonts
+                    because i love it you can change your fonts by editing the token.
+                </p>
+
+                <div data-is=" stack" data-gap="sm">
+                    <h1>Heading 1 The poster</h1>
+                    <h2>Heading 2 The chapter</h2>
+                    <h3>Heading 3 The section</h3>
+                    <h4>Heading 4 The subsection</h4>
+                    <h5>Heading 5 The detail</h5>
+                    <h6>Heading 6</h6>
+                    <p>This is a paragraph</p>
+                </div>
+
+                <ul>
+                    <li>unordered list 1</li>
+                    <li>unordered list 2
+                        <ul>
+                            <li>Nested items work too</li>
+                            <li>Hierarchy is maintained</li>
+                        </ul>
+                    </li>
+                    <li>Everything is the design</li>
+                </ul>
+
+                <ol>
+                    <li>ordered list 1</li>
+                    <li>ordered list 2</li>
+                    <li>Ship it</li>
+                </ol>
+
+                <p>This is a <a href="#">link that goes somewhere</a>. Underline pulls closer on hover.</p>
+
+                <p><strong>Strong text</strong> and <em>emphasized text</em>.</p>
+
+                <div>
+                    <p>You can <mark>highlight important text</mark> with the mark element.</p>
+
+                    <div data-is="codeblock" data-label="HTML">
+                        <pre><code>&lt;mark&gt;highlighted text&lt;/mark&gt;</code></pre>
+                    </div>
+                </div>
+
+                <blockquote>
+                    <p>The details are not the details. They make the design.</p>
+                    <cite>Charles Eames</cite>
+                </blockquote>
+                <div>
+                    <h3>Inline Code</h3>
+                    <p>Set <code>data-theme="dark"</code> on your <code>&lt;html&gt;</code> element.</p>
+                </div>
+                <div data-is="stack">
+                    <h3>Keyboard</h3>
+                    <div>
+                        <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open palette.</p>
+                    </div>
+                    <div data-is="codeblock" data-label="HTML">
+                        <pre><code>&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;P&lt;/kbd&gt;</code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3>Small & Abbreviation</h3>
+                    <p><small>Small text for captions.</small></p>
+                    <p>The <abbr title="Raw Intentional Minimal">RIM</abbr> library. Hover the abbreviation.</p>
+                </div>
+            </section>
+
+            <!-- Bread crumps section -->
+            <section id="breadcrumb" data-is="stack">
+                <h2>Breadcrumb</h2>
+                <p>
+                    Breadcrumb shows the path of files. This was inspired from vscode breadcrumb.The current page uses
+                    <code>aria-current="page"</code>
+                    for both styling and accessibility.
+                </p>
+
+                <h3>Basic Breadcrumb</h3>
+                <div>
+                    <nav data-is="breadcrumb">
+                        <a href="#">Home</a>
+                        <a href="#">Blog</a>
+                        <a aria-current="page">This Post</a>
+                    </nav>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;nav data-is="breadcrumb"&gt;
+  &lt;a href="/"&gt;Home&lt;/a&gt;
+  &lt;a href="/blog"&gt;Blog&lt;/a&gt;
+  &lt;a aria-current="page"&gt;This Post&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+
+                <div data-is="callout" data-variant="info">
+                    <p>
+                        <strong>Accessibility.</strong> The <code>aria-current="page"</code>
+                        attribute tells screen readers which item represents the
+                        current page. RIM CSS uses this same attribute for visual styling accessible by design.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Buttton Section -->
+            <section id="button" data-is="stack">
+                <h2>Button</h2>
+                <p>
+                    Sharp corners. Hard shadow on hover. Pushes down on click.
+                    Disabled buttons get a strikethrough because cancelled means cancelled.
+                </p>
+
+                <h3>Variants</h3>
+                <div>
+                    <div>
+                        <button>Default</button>
+                        <button data-variant="primary">Primary</button>
+                        <button data-variant="accent">Accent</button>
+                        <button disabled>Disabled</button>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;button&gt;Default&lt;/button&gt;
+&lt;button data-variant="primary"&gt;Primary&lt;/button&gt;
+&lt;button data-variant="accent"&gt;Accent&lt;/button&gt;
+&lt;button disabled&gt;Disabled&lt;/button&gt;</code></pre>
+                </div>
+
+                <h3>Sizes</h3>
+                <div>
+                    <div>
+                        <button data-size="sm">Small</button>
+                        <button>Default</button>
+                        <button data-size="lg">Large</button>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;button data-size="sm"&gt;Small&lt;/button&gt;
+&lt;button&gt;Default&lt;/button&gt;
+&lt;button data-size="lg"&gt;Large&lt;/button&gt;</code></pre>
+                </div>
+
+                <h3>Link as Button</h3>
+                <p>
+                    Links can look like buttons using <code>data-is="button"</code>.
+                    Same styles. Same variants. Use <code>aria-disabled="true"</code>
+                    for disabled links.
+                </p>
+
+                <div>
+                    <div>
+                        <a data-is="button" href="#">Link Default</a>
+                        <a data-is="button" data-variant="primary" href="#">Link Primary</a>
+                        <a data-is="button" data-variant="accent" href="#">Link Accent</a>
+                        <a data-is="button" aria-disabled="true">Link Disabled</a>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;a data-is="button" href="#"&gt;Link Default&lt;/a&gt;
+&lt;a data-is="button" data-variant="primary" href="#"&gt;Link Primary&lt;/a&gt;
+&lt;a data-is="button" aria-disabled="true"&gt;Link Disabled&lt;/a&gt;</code></pre>
+                </div>
+
+                <div data-is="callout" data-variant="info">
+                    <p>
+                        <strong>Accessibility note:</strong> Links use
+                        <code>aria-disabled="true"</code> instead of <code>disabled</code>
+                        because the <code>disabled</code> attribute is not valid on
+                        <code>&lt;a&gt;</code> elements.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- Callout Section -->
+            <section id="callout" data-is="stack">
+                <h2>Callout / Alert</h2>
+                <p>
+                    Important information that needs attention. Left border
+                    signals the type. Background tint gives context without screaming.
+                </p>
+
+                <h3>All Available Variants</h3>
+                <div data-is="stack" data-gap="sm">
+                    <div data-is="callout">
+                        <p><strong>Default.</strong> General information.</p>
+                    </div>
+                    <div data-is="callout" data-variant="info">
+                        <p><strong>Info.</strong> Helpful context.</p>
+                    </div>
+                    <div data-is="callout" data-variant="warning">
+                        <p><strong>Warning.</strong> Be aware.</p>
+                    </div>
+                    <div data-is="callout" data-variant="success">
+                        <p><strong>Success.</strong> All good.</p>
+                    </div>
+                    <div data-is="callout" data-variant="error">
+                        <p><strong>Error.</strong> Something broke.</p>
+                    </div>
+                </div>
+                <h3>Default</h3>
+                <div>
+                    <div data-is="callout">
+                        <p>
+                            <strong>Note.</strong>
+                            This is a default callout for general information
+                            without a specific type.
+                        </p>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="callout"&gt;
+  &lt;p&gt;&lt;strong&gt;Note.&lt;/strong&gt; General information.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Info</h3>
+                <p>Helpful context, tips, and supplementary information.</p>
+                <div>
+                    <div data-is="callout" data-variant="info">
+                        <p>
+                            <strong>Info.</strong>
+                            RIM CSS uses <code>@layer</code> for cascade control.
+                            Your custom CSS always wins over library styles.
+                        </p>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="callout" data-variant="info"&gt;
+  &lt;p&gt;&lt;strong&gt;Info.&lt;/strong&gt; Helpful context here.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Warning</h3>
+                <p>Something to be careful about.</p>
+                <div>
+                    <div data-is="callout" data-variant="warning">
+                        <p>
+                            <strong>Warning.</strong>
+                            This library requires a modern browser.
+                            Internet Explorer is not supported.
+                        </p>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="callout" data-variant="warning"&gt;
+  &lt;p&gt;&lt;strong&gt;Warning.&lt;/strong&gt; Be careful about this.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Success</h3>
+                <p>Confirmation and positive outcomes.</p>
+                <div>
+                    <div data-is="callout" data-variant="success">
+                        <p>
+                            <strong>Success.</strong>
+                            Your site is now using RIM CSS.
+                            Every element has DNA.
+                        </p>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="callout" data-variant="success"&gt;
+  &lt;p&gt;&lt;strong&gt;Success.&lt;/strong&gt; Positive confirmation.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Error</h3>
+                <p>Something went wrong. Critical information.</p>
+                <div>
+                    <div data-is="callout" data-variant="error">
+                        <p>
+                            <strong>Error.</strong>
+                            Something went wrong. But at least
+                            it looks good while failing.
+                        </p>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="callout" data-variant="error"&gt;
+  &lt;p&gt;&lt;strong&gt;Error.&lt;/strong&gt; Something went wrong.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- Card section -->
+            <section id="card" data-is="stack">
+                <h2>Card</h2>
+                <p>Content container. Sharp borders. Lifts on hover with hard shadow.</p>
+
+                <h3>Basic Card</h3>
+                <div>
+                    <div data-is="grid" data-cols="2">
+                        <article data-is="card">
+                            <h4>Design Tokens</h4>
+                            <p>Every visual decision lives as a CSS variable.</p>
+                            <div>
+                                <span data-is="tag">CSS</span>
+                            </div>
+                        </article>
+                        <article data-is="card">
+                            <h4>Zero Dependencies</h4>
+                            <p>No npm. No build tools. Pure CSS.</p>
+                            <div>
+                                <button>View</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;article data-is="card"&gt;
+  &lt;h4&gt;Design Tokens&lt;/h4&gt;
+  &lt;p&gt;Every visual decision lives as a CSS variable.&lt;/p&gt;
+  &lt;div&gt;
+  &lt;span data-is="tag"&gt;CSS&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+
+                <div data-is="callout" data-variant="warning">
+                    Note: You have to wrap with <code>&lt;div&gt;</code>when you want to add button or tags in card
+                </div>
+                <h3>Card with Image</h3>
+                <div>
+                    <div style="max-width: 360px;">
+                        <article data-is="card">
+                            <img src="https://placehold.co/400x200/e9ebef/000000?text=RIM" alt="Card image">
+                            <h4>Card with Image</h4>
+                            <p>Description for the card:</p>
+                            <div>
+                                <span data-is="tag">Tutorial</span>
+                                <span data-is="tag">CSS</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;article data-is="card"&gt;
+  &lt;img src="image.jpg" alt="..."&gt;
+  &lt;h4&gt;Card with Image&lt;/h4&gt;
+  &lt;p&gt;First image becomes the card header.&lt;/p&gt;
+  &lt;div&gt;
+  &lt;span data-is="tag"&gt;Tutorial&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+
+            </section>
+
+            <!-- Code block section -->
+            <section id="codeblock" data-is="stack">
+                <h2>Code Block Enhanced</h2>
+                <p>
+                    Wraps <code>&lt;pre&gt;&lt;code&gt;</code> with an optional
+                    filename label. The label sits on top like a terminal tab.
+                    Fira Code font. Scrollable for long lines.
+                </p>
+
+                <h3>Without Label</h3>
+                <p>A clean code block with no header.</p>
+                <div>
+                    <div data-is="codeblock">
+                        <pre><code>const philosophy = " Every element earns its place"; console.log(`rim`);</code>
+                        </pre>
+                    </div>
+                </div>
+
+
+                <h3>With Filename Label</h3>
+                <p>
+                    Add <code>data-label</code> to show a filename header.
+                    Great for tutorials and documentation.
+                </p>
+                <div data-is="stack">
+                    <div data-is="codeblock" data-label="index.html">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" data-theme="light"&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="rim.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, RIM.&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <div data-is="callout" data-variant="info">
+                        <p>
+                            The label is generated from the <code>data-label</code>
+                            attribute using CSS <code>::before</code> pseudo-element.
+                            No JavaScript needed.
+                        </p>
+                    </div>
+            </section>
+
+            <!-- Section for divider -->
+            <section id="divider" data-is="stack">
+                <h2>Divider</h2>
+                <p>
+                    Section separator with more presence than a plain
+                    <code>&lt;hr&gt;</code>. Default is a clean line.
+                    Decorative adds an editorial pause — like a scene
+                    break in a novel.
+                </p>
+
+                <h3>Default Divider</h3>
+                <p>Clean horizontal line with generous margin.</p>
+                <div data-is="stack">
+                    <p>Content above the divider. The line creates a clear visual break.</p>
+                    <hr data-is="divider">
+                </div>
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;hr data-is="divider"&gt;</code></pre>
+                </div>
+
+                <div>
+                    <h3>Decorative Divider</h3>
+                    <p>
+                        So i havent think of good decorative divider but you can add your own divider my changing the
+                        text.
+                    </p>
+                    <hr data-is="divider" data-variant="decorative">
+
+                    <div data-is="codeblock" data-label="HTML">
+                        <pre><code>&lt;hr data-is="divider" data-variant="decorative"&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Dropdown section -->
+            <section id="dropdown" data-is="stack">
+                <h2>Dropdown</h2>
+                <p>
+                    Built on native <code>&lt;details&gt;</code> +
+                    <code>&lt;summary&gt;</code>. Zero JavaScript required.
+                    Keyboard accessible. Screen reader friendly. Three patterns:
+                    content reveal, accordion group and action menu.
+                </p>
+
+                <h3>Content Dropdown</h3>
+                <p>
+                    Expandable content sections. Click to open,
+                    click to close. FAQ, collapsible panels, spoiler text.
+                </p>
+                <div data-is="stack" data-gap="sm">
+                    <details data-is="dropdown">
+                        <summary>What is RIM CSS?</summary>
+                        <div>
+                            <p>
+                                RIM CSS is a minimal CSS library built on the philosophy
+                                of <strong>Raw Intentional Minimal</strong>. Every element,
+                                every component, every byte earns its place.
+                            </p>
+                        </div>
+                    </details>
+
+
+                    <details data-is="dropdown">
+                        <summary>Can I customize the colors?</summary>
+                        <div>
+                            <p>
+                                Yes. Override any <code>--rim-*</code> CSS variable in
+                                your own stylesheet. Your CSS always wins over RIM's
+                                <code>@layer</code> system.
+                            </p>
+                        </div>
+                    </details>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;details data-is="dropdown"&gt;
+  &lt;summary&gt;What is RIM CSS?&lt;/summary&gt;
+  &lt;div&gt;
+    &lt;p&gt;A minimal CSS library where every element earns its place.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;</code></pre>
+                </div>
+
+                <h3>Pre-opened</h3>
+                <p>
+                    Add the native <code>open</code> attribute to show
+                    content by default.
+                </p>
+                <div>
+                    <details data-is="dropdown" open>
+                        <summary>This one starts open</summary>
+                        <div>
+                            <p>
+                                This content is visible immediately. The user can
+                                close it by clicking the summary.
+                            </p>
+                        </div>
+                    </details>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;details data-is="dropdown" open&gt;
+  &lt;summary&gt;This one starts open&lt;/summary&gt;
+  &lt;div&gt;&lt;p&gt;Visible by default.&lt;/p&gt;&lt;/div&gt;
+&lt;/details&gt;</code></pre>
+                </div>
+
+                <h3>Dropdown Group (Accordion)</h3>
+                <p>
+                    Stack dropdowns together with shared borders.
+                    Looks like a unified accordion. Multiple items
+                    can be open simultaneously.
+                </p>
+                <div>
+                    <div data-is="dropdown-group">
+                        <details data-is="dropdown">
+                            <summary>Step 1 — Install</summary>
+                            <div>
+                                <p>
+                                    Add one line to your HTML <code>&lt;head&gt;</code>
+                                    and you're ready. No npm, no build tools, no
+                                    configuration files.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details data-is="dropdown">
+                            <summary>Step 2 — Add Fonts</summary>
+                            <div>
+                                <p>
+                                    Optionally add the Google Fonts link for Space
+                                    Grotesk, Inter, and Fira Code. RIM CSS works
+                                    without them using system font fallbacks.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details data-is="dropdown">
+                            <summary>Step 3 — Set Theme</summary>
+                            <div>
+                                <p>
+                                    Add <code>data-theme="light"</code> or
+                                    <code>data-theme="dark"</code> to your
+                                    <code>&lt;html&gt;</code> element.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details data-is="dropdown">
+                            <summary>Step 4 — Write HTML</summary>
+                            <div>
+                                <p>
+                                    Write semantic HTML. Use <code>data-is</code>
+                                    attributes for components. That's the entire API.
+                                    Your site has DNA now.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="dropdown-group"&gt;
+  &lt;details data-is="dropdown"&gt;
+    &lt;summary&gt;Step 1 — Install&lt;/summary&gt;
+    &lt;div&gt;&lt;p&gt;Add one line to your HTML.&lt;/p&gt;&lt;/div&gt;
+  &lt;/details&gt;
+  &lt;details data-is="dropdown"&gt;
+    &lt;summary&gt;Step 2 — Add Fonts&lt;/summary&gt;
+    &lt;div&gt;&lt;p&gt;Optional Google Fonts link.&lt;/p&gt;&lt;/div&gt;
+  &lt;/details&gt;
+  &lt;details data-is="dropdown"&gt;
+    &lt;summary&gt;Step 3 — Ship It&lt;/summary&gt;
+    &lt;div&gt;&lt;p&gt;Your site has DNA now.&lt;/p&gt;&lt;/div&gt;
+  &lt;/details&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div data-is="callout" data-variant="info">
+                    <p>
+                        Dropdown groups share borders between items — no
+                        double lines. They look like one cohesive unit.
+                    </p>
+                </div>
+
+                <h3>Menu Dropdown</h3>
+                <p>
+                    Action menu that positions below the trigger.
+                    The trigger looks and behaves like a button
+                    hard shadow on hover, push-down on click.
+                </p>
+                <div>
+                    <div>
+                        <details data-is="dropdown" data-variant="menu">
+                            <summary>Actions</summary>
+                            <ul>
+                                <li><a href="#">Edit post</a></li>
+                                <li><a href="#">Duplicate</a></li>
+                                <li><a href="#">Share</a></li>
+                                <li>
+                                    <hr>
+                                </li>
+                                <li><a href="#" data-danger>Delete</a></li>
+                            </ul>
+                        </details>
+
+                        <details data-is="dropdown" data-variant="menu">
+                            <summary>Sort by</summary>
+                            <ul>
+                                <li><a href="#">Newest first</a></li>
+                                <li><a href="#">Oldest first</a></li>
+                                <li><a href="#">Most popular</a></li>
+                                <li><a href="#">Alphabetical</a></li>
+                            </ul>
+                        </details>
+
+                        <details data-is="dropdown" data-variant="menu">
+                            <summary>Export</summary>
+                            <ul>
+                                <li><a href="#">Download as PDF</a></li>
+                                <li><a href="#">Download as Markdown</a></li>
+                                <li><a href="#">Copy link</a></li>
+                            </ul>
+                        </details>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;details data-is="dropdown" data-variant="menu"&gt;
+  &lt;summary&gt;Actions&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Edit post&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Duplicate&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Share&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;hr&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" data-danger&gt;Delete&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;</code></pre>
+                </div>
+
+                <h3>Menu Features</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>How</th>
+                            <th>What it does</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Separator</td>
+                            <td><code>&lt;li&gt;&lt;hr&gt;&lt;/li&gt;</code></td>
+                            <td>Visual divider between menu groups</td>
+                        </tr>
+                        <tr>
+                            <td>Danger item</td>
+                            <td><code>data-danger</code></td>
+                            <td>Red text for destructive actions (delete, remove)</td>
+                        </tr>
+                        <tr>
+                            <td>Auto-close</td>
+                            <td>JS click handler</td>
+                            <td>Close menu when clicking outside (see Themes section)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div data-is="callout" data-variant="info">
+                    <p>
+                        <strong>Note:</strong> The menu dropdown uses native
+                        <code>&lt;details&gt;</code> behavior. It opens and closes
+                        on click without JavaScript. For closing when clicking outside
+                    </p>
+                </div>
+            </section>
+
+            <!-- Form section -->
+            <section id="forms" data-is="stack">
+                <h2>Forms</h2>
+                <p>General minimal form that works for basic purpose.</p>
+
+                <div>
+                    <form onsubmit="return false;" data-is="stack" data-gap="sm">
+                        <div>
+                            <label for="d-name">Name</label>
+                            <input type="text" id="d-name" placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label for="d-email">Email</label>
+                            <input type="email" id="d-email" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="d-msg">Message</label>
+                            <textarea id="d-msg" rows="3" placeholder="Write something..."></textarea>
+                        </div>
+                        <div>
+                            <label for="d-role">Role</label>
+                            <select id="d-role">
+                                <option>Developer</option>
+                                <option>Designer</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;form&gt;
+  &lt;label for="name"&gt;Name&lt;/label&gt;
+  &lt;input type="text" id="name" placeholder="Enter your name"&gt;
+
+  &lt;label for="msg"&gt;Message&lt;/label&gt;
+  &lt;textarea id="msg" rows="3"&gt;&lt;/textarea&gt;
+
+  &lt;label for="role"&gt;Role&lt;/label&gt;
+  &lt;select id="role"&gt;
+    &lt;option&gt;Developer&lt;/option&gt;
+    &lt;option&gt;Designer&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </section>
+
+
+            <!-- Tags section -->
+            <section id="tag" data-is="stack">
+                <h2>Tags</h2>
+                <p>
+                    I found tags are very helpfull for quickly giving context information. Thats why i created tag
+                    component. A Small labels for categories, topics and status.
+                </p>
+
+                <h3>Default Tags</h3>
+                <div>
+                    <div>
+                        <span data-is="tag">CSS</span>
+                        <span data-is="tag">HTML</span>
+                        <span data-is="tag">JavaScript</span>
+                        <span data-is="tag">Design</span>
+                        <span data-is="tag">Minimal</span>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;span data-is="tag"&gt;CSS&lt;/span&gt;
+&lt;span data-is="tag"&gt;HTML&lt;/span&gt;
+&lt;span data-is="tag"&gt;JavaScript&lt;/span&gt;</code></pre>
+                </div>
+
+                <h3>Accent Variant</h3>
+                <div>
+                    <div>
+                        <span data-is="tag" data-variant="accent">New</span>
+                        <span data-is="tag" data-variant="accent">Featured</span>
+                        <span data-is="tag" data-variant="accent">v0.1</span>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;span data-is="tag" data-variant="accent"&gt;New&lt;/span&gt;
+&lt;span data-is="tag" data-variant="accent"&gt;Featured&lt;/span&gt;</code></pre>
+                </div>
+
+                <h3>Tags in Context</h3>
+                <p>Tags are easy to use with card but remember you have to wrap it with the div.</p>
+                <div>
+                    <div style="max-width: 360px;">
+                        <article data-is="card">
+                            <h4>Building RIM CSS</h4>
+                            <p>Minimal CSS Library</p>
+                            <div>
+                                <span data-is="tag">Tutorial</span>
+                                <span data-is="tag">CSS</span>
+                                <span data-is="tag" data-variant="accent">New</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Table section -->
+            <section id="tables" data-is="stack">
+                <h2>Tables</h2>
+                <p>With semantic structure we can get clean minimal table.</p>
+                <div>
+                    <table>
+                        <caption>Browser support</caption>
+                        <thead>
+                            <tr>
+                                <th>Browser</th>
+                                <th>Version</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chrome</td>
+                                <td>100+</td>
+                                <td>✅ Supported</td>
+                            </tr>
+                            <tr>
+                                <td>Firefox</td>
+                                <td>100+</td>
+                                <td>✅ Supported</td>
+                            </tr>
+                            <tr>
+                                <td>Safari</td>
+                                <td>16+</td>
+                                <td>✅ Supported</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;table&gt;
+  &lt;caption&gt;Browser support&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Browser&lt;/th&gt;
+      &lt;th&gt;Version&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Chrome&lt;/td&gt;
+      &lt;td&gt;100+&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </section>
+
+
+            <!-- Table of content section -->
+            <section id="toc" data-is="stack">
+                <h2>Table of Contents</h2>
+                <p>
+                    Navigation for long-form content. Shows document
+                    structure at a glance. Supports active state
+                    and nested sections.
+                </p>
+
+                <h3>Basic TOC</h3>
+                <div>
+                    <nav data-is="toc">
+                        <h4>On This Page</h4>
+                        <ol>
+                            <li><a href="#" aria-current="true">Introduction</a></li>
+                            <li><a href="#">The Philosophy</a></li>
+                            <li><a href="#">Getting Started</a></li>
+                            <li><a href="#">Components</a></li>
+                            <li><a href="#">Customization</a></li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;nav data-is="toc"&gt;
+  &lt;h4&gt;On This Page&lt;/h4&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href="#intro" aria-current="true"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#philosophy"&gt;The Philosophy&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#start"&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#components"&gt;Components&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#custom"&gt;Customization&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+
+                <h3>Nested TOC</h3>
+                <p>Sub-sections use alphabetical numbering automatically.</p>
+                <div>
+                    <nav data-is="toc">
+                        <h4>Contents</h4>
+                        <ol>
+                            <li><a href="#" aria-current="true">Introduction</a></li>
+                            <li><a href="#">Philosophy</a>
+                                <ol>
+                                    <li><a href="#">Core beliefs</a></li>
+                                    <li><a href="#">Design principles</a></li>
+                                    <li><a href="#">What makes it different</a></li>
+                                </ol>
+                            </li>
+                            <li><a href="#">Getting Started</a>
+                                <ol>
+                                    <li><a href="#">Installation</a></li>
+                                    <li><a href="#">Adding fonts</a></li>
+                                </ol>
+                            </li>
+                            <li><a href="#">Components</a></li>
+                            <li><a href="#">Customization</a></li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;nav data-is="toc"&gt;
+  &lt;h4&gt;Contents&lt;/h4&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href="#intro"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#philosophy"&gt;Philosophy&lt;/a&gt;
+      &lt;ol&gt;
+        &lt;li&gt;&lt;a href="#beliefs"&gt;Core beliefs&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#principles"&gt;Design principles&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#start"&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+
+                <div data-is="callout" data-variant="info">
+                    <p>
+                        Mark the currently active section with
+                        <code>aria-current="true"</code>. The link becomes
+                        accent-colored and bold. To update it dynamically
+                        as the user scrolls, use a small Intersection Observer script.
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- container section -->
+            <section id="container" data-is="stack">
+                <h2>Container</h2>
+                <p>Controls content width and centers it. RIM container have three variants.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Max Width</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>data-is="container"</code></td>
+                            <td>1080px</td>
+                            <td>Page layouts, grids, cards</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-is="container-reading"</code></td>
+                            <td>680px</td>
+                            <td>Blog posts, long-form text</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-is="container-full"</code></td>
+                            <td>100%</td>
+                            <td>Edge to edge content</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;!-- Page width --&gt;
+&lt;div data-is="container"&gt;...&lt;/div&gt;
+
+&lt;!-- Reading width (blog posts) --&gt;
+&lt;div data-is="container-reading"&gt;...&lt;/div&gt;
+
+&lt;!-- Full width --&gt;
+&lt;div data-is="container-full"&gt;...&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+
+            <!-- Stack section -->
+            <section id="stack" data-is="stack">
+                <h2>Stack</h2>
+                <p>Vertical spacing between children. No margin hacks. The stack owns the gaps.</p>
+
+                <h3>Default</h3>
+                <div>
+                    <div data-is="stack">
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface);">
+                            Child 1 — 24px gap</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface);">
+                            Child 2</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface);">
+                            Child 3</div>
+                    </div>
+                </div>
+
+                <h3>Small</h3>
+                <div>
+                    <div data-is="stack" data-gap="sm">
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface);">
+                            Child 1 — 12px gap</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface);">
+                            Child 2</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface);">
+                            Child 3</div>
+                    </div>
+                </div>
+
+                <h3>Large</h3>
+                <div>
+                    <div data-is="stack" data-gap="lg">
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface);">
+                            Child 1 — 48px gap</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface);">
+                            Child 2</div>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="stack"&gt;...&lt;/div&gt;              &lt;!-- default 24px --&gt;
+&lt;div data-is="stack" data-gap="sm"&gt;...&lt;/div&gt; &lt;!-- tight 12px --&gt;
+&lt;div data-is="stack" data-gap="lg"&gt;...&lt;/div&gt; &lt;!-- generous 48px --&gt;</code></pre>
+                </div>
+            </section>
+
+
+            <!-- ===== GRID ===== -->
+            <section id="grid" data-is="stack">
+                <h2>Grid</h2>
+                <p>Responsive grid. Auto-fit by default. Force columns when needed.</p>
+
+                <h3>Auto-fit (default)</h3>
+                <div>
+                    <div data-is="grid">
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            1</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            2</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            3</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            4</div>
+                    </div>
+                </div>
+
+                <h3>2 Columns</h3>
+                <div>
+                    <div data-is="grid" data-cols="2">
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            Column 1</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            Column 2</div>
+                    </div>
+                </div>
+
+                <h3>3 Columns</h3>
+                <div>
+                    <div data-is="grid" data-cols="3">
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            1</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            2</div>
+                        <div
+                            style="padding: var(--rim-space-3); border: 1px solid var(--rim-border); background: var(--rim-surface); text-align:center;">
+                            3</div>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="grid"&gt;...&lt;/div&gt;              &lt;!-- auto-fit --&gt;
+&lt;div data-is="grid" data-cols="2"&gt;...&lt;/div&gt; &lt;!-- 2 columns --&gt;
+&lt;div data-is="grid" data-cols="3"&gt;...&lt;/div&gt; &lt;!-- 3 columns --&gt;</code></pre>
+                </div>
+
+                <div data-is="callout" data-variant="info">
+                    <p>All grids collapse to single column on mobile automatically. No media queries needed.</p>
+                </div>
+            </section>
+
+            <!-- Sidebar section -->
+            <section id="sidebar" class="docs-section" data-is="stack">
+                <h2>Sidebar</h2>
+                <p>
+                    Simple 3 section layout header sidebar main.
+                </p>
+
+                <h3>Right Sidebar (default)</h3>
+                <p>Main content first, aside second, Sidebar appears on the right.</p>
+                <div class="docs-preview">
+                    <div data-is="sidebar">
+                        <main>
+                            <div data-is="stack" data-gap="sm">
+                                <h4 style="margin-top:0;">Main Content</h4>
+                                <p>
+                                    This is the primary content area. It takes as much
+                                    space as possible. The sidebar sits to the right
+                                    with a subtle border separating them.
+                                </p>
+                                <p>
+                                    When the viewport gets too narrow, the sidebar
+                                    wraps below this content automatically.
+                                </p>
+                            </div>
+                        </main>
+                        <aside>
+                            <h4>Sidebar</h4>
+                            <nav>
+                                <a href="#" aria-current="page">Introduction</a>
+                                <a href="#">Getting Started</a>
+                                <a href="#">Components</a>
+                                <a href="#">Customization</a>
+                            </nav>
+                        </aside>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="sidebar"&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Page Title&lt;/h1&gt;
+    &lt;p&gt;Main content here...&lt;/p&gt;
+  &lt;/main&gt;
+  &lt;aside&gt;
+    &lt;h4&gt;Navigation&lt;/h4&gt;
+    &lt;nav&gt;
+      &lt;a href="#"&gt;Link one&lt;/a&gt;
+      &lt;a href="#"&gt;Link two&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Left Sidebar</h3>
+                <p>
+                    Put the <code>&lt;aside&gt;</code> first in your HTML.
+                    Source order = visual order. On mobile, sidebar
+                    appears above main content.
+                </p>
+                <div class="docs-preview">
+                    <div data-is="sidebar">
+                        <aside>
+                            <h4>Categories</h4>
+                            <ul>
+                                <li><a href="#">All Posts</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">Philosophy</a></li>
+                            </ul>
+                        </aside>
+                        <main>
+                            <div data-is="stack" data-gap="sm">
+                                <h4 style="margin-top:0;">Blog Posts</h4>
+                                <p>
+                                    The sidebar is on the left because the
+                                    <code>&lt;aside&gt;</code> comes first in the HTML.
+                                    Simple and semantic.
+                                </p>
+                                <p>
+                                    The border automatically appears on the correct
+                                    side — right border for left sidebar, left border
+                                    for right sidebar.
+                                </p>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;!-- Left sidebar — aside comes first --&gt;
+&lt;div data-is="sidebar"&gt;
+  &lt;aside&gt;
+    &lt;h4&gt;Categories&lt;/h4&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;All Posts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Blog Posts&lt;/h1&gt;
+    &lt;p&gt;Content here...&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Sidebar Width Variants</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Sidebar Width</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><em>default</em></td>
+                            <td>260px</td>
+                            <td>Navigation, TOC, standard sidebar</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-sidebar="narrow"</code></td>
+                            <td>200px</td>
+                            <td>Compact navigation, minimal sidebar</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-sidebar="wide"</code></td>
+                            <td>320px</td>
+                            <td>Rich widgets, dashboard panels</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Sticky Sidebar</h3>
+                <p>
+                    Add <code>data-sticky</code> to the aside. It sticks to the
+                    top of the viewport while main content scrolls. If sidebar
+                    content is taller than the viewport, it becomes scrollable.
+                </p>
+                <div class="docs-preview">
+                    <div data-is="sidebar">
+                        <main>
+                            <div data-is="stack" data-gap="sm">
+                                <h4 style="margin-top:0;">Long Article</h4>
+                                <p>
+                                    This main content area is tall. As you scroll
+                                    through it, the sidebar stays fixed in view.
+                                </p>
+                                <p>
+                                    This is useful for table of contents, navigation,
+                                    or any supporting content the user needs constant
+                                    access to while reading.
+                                </p>
+                                <p>
+                                    The sticky behavior automatically disables on
+                                    mobile when the sidebar stacks below the content.
+                                </p>
+                                <p>
+                                    If the sidebar content is taller than the viewport,
+                                    it becomes independently scrollable so nothing
+                                    gets cut off.
+                                </p>
+                            </div>
+                        </main>
+                        <aside data-sticky>
+                            <h4>On This Page</h4>
+                            <nav>
+                                <a href="#" aria-current="true">Introduction</a>
+                                <a href="#">Background</a>
+                                <a href="#">Implementation</a>
+                                <a href="#">Results</a>
+                                <a href="#">Conclusion</a>
+                            </nav>
+                        </aside>
+                    </div>
+                </div>
+
+                <div data-is="codeblock" data-label="HTML">
+                    <pre><code>&lt;div data-is="sidebar"&gt;
+  &lt;main&gt;
+    &lt;!-- Long scrollable content --&gt;
+  &lt;/main&gt;
+  &lt;aside data-sticky&gt;
+    &lt;h4&gt;On This Page&lt;/h4&gt;
+    &lt;nav&gt;
+      &lt;a href="#section-1"&gt;Section 1&lt;/a&gt;
+      &lt;a href="#section-2"&gt;Section 2&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+            </section>
+
+            <!-- Customization section -->
+            <section id="customization" data-is="stack">
+                <h2>Customization</h2>
+                <p>
+                    RIM CSS uses <code>@layer</code>. Your CSS is unlayered,
+                    which means it <strong>always wins</strong> over RIM's
+                    styles. No <code>!important</code> hacks. No specificity
+                    wars. Just write CSS it overrides automatically.
+                </p>
+
+                <h3>Override Design Tokens</h3>
+                <p>Change any variable to transform the entire library.</p>
+
+                <div data-is="codeblock" data-label="custom.css">
+                    <pre><code>/* Your custom theme */
+:root {
+  /* Change accent color */
+  --rim-accent: #e11d48;
+  --rim-accent-hover: #be123c;
+
+  /* Change fonts */
+  --rim-font-heading: 'Georgia', serif;
+  --rim-font-body: 'Merriweather', serif;
+
+  /* Add rounded corners (override sharp default) */
+  --rim-radius: 6px;
+
+  /* Change background */
+  --rim-bg: #fefce8;
+
+  /* Change spacing feel */
+  --rim-space-5: 2rem;
+  --rim-space-7: 4rem;
+}</code></pre>
+                </div>
+
+                <h3>Override Dark Mode Separately</h3>
+                <div data-is="codeblock" data-label="custom.css">
+                    <pre><code>/* Custom dark mode */
+[data-theme="dark"] {
+  --rim-accent: #f472b6;
+  --rim-accent-hover: #ec4899;
+  --rim-bg: #0a0a0a;
+  --rim-surface: #171717;
+  --rim-border: #2a2a2a;
+}</code></pre>
+                </div>
+
+                <h3>Override Specific Components</h3>
+                <div data-is="codeblock" data-label="custom.css">
+                    <pre><code>/* Cards always have subtle shadow */
+[data-is="card"] {
+  box-shadow: var(--rim-shadow-sm);
+}
+
+/* Thicker callout border */
+[data-is="callout"] {
+  border-left-width: 4px;
+}
+
+/* Custom primary button */
+button[data-variant="primary"] {
+  background-color: hotpink;
+  border-color: hotpink;
+}
+
+/* Bigger tags */
+[data-is="tag"] {
+  padding: var(--rim-space-2) var(--rim-space-4);
+  font-size: var(--rim-text-sm);
+}
+
+/* Remove background texture */
+body {
+  background-image: none;
+}</code></pre>
+                </div>
+
+                <h3>How @layer Works</h3>
+                <p>
+                    RIM CSS declares all its styles inside named layers.
+                    CSS outside any layer has higher priority than layered CSS.
+                    Since your stylesheet is not inside a layer, it
+                    always wins.
+                </p>
+
+                <div data-is="codeblock" data-label="rim.css (internal)">
+                    <pre><code>@layer rim-reset,      /* Browser normalization — lowest priority */
+       rim-tokens,     /* Design variables */
+       rim-base,       /* Typography & elements */
+       rim-layout,     /* Container, stack, grid */
+       rim-components, /* Buttons, cards, etc */
+       rim-utilities;  /* Helpers — highest RIM priority */
+
+/* ↑ All RIM styles live inside these layers */
+/* ↓ Your CSS lives OUTSIDE layers always wins */</code></pre>
+                </div>
+
+                <div data-is="callout" data-variant="info">
+                    <p>
+                        <strong>Practical result:</strong> You never need
+                        <code>!important</code>. You never need to match
+                        RIM's selector specificity. Just write a normal CSS
+                        rule targeting the same element and your style applies.
+                    </p>
+                </div>
+
+                <h3>Available Tokens Reference</h3>
+                <details data-is="dropdown">
+                    <summary>Color Tokens</summary>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>--rim-bg</code></td>
+                                    <td>Page background</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-text</code></td>
+                                    <td>Primary text color</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-accent</code></td>
+                                    <td>Accent / brand color</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-accent-hover</code></td>
+                                    <td>Accent hover state</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-muted</code></td>
+                                    <td>Secondary text</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-border</code></td>
+                                    <td>Border color</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-surface</code></td>
+                                    <td>Card/input backgrounds</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-code-bg</code></td>
+                                    <td>Code backgrounds</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-highlight</code></td>
+                                    <td>Mark element background</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-info</code></td>
+                                    <td>Info callout color</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-warning</code></td>
+                                    <td>Warning callout color</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-success</code></td>
+                                    <td>Success callout color</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-error</code></td>
+                                    <td>Error callout color</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-selection-bg</code></td>
+                                    <td>Text selection background</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-selection-text</code></td>
+                                    <td>Text selection color</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details data-is="dropdown">
+                    <summary>Typography Tokens</summary>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>--rim-font-heading</code></td>
+                                    <td>Heading font family</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-font-body</code></td>
+                                    <td>Body font family</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-font-code</code></td>
+                                    <td>Code font family</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-text-h1</code> to <code>--rim-text-h6</code></td>
+                                    <td>Heading sizes</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-text-base</code></td>
+                                    <td>Body text size</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-text-sm</code></td>
+                                    <td>Small text</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-text-xs</code></td>
+                                    <td>Extra small text</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-text-lg</code></td>
+                                    <td>Large text</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-weight-normal</code></td>
+                                    <td>400 weight</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-weight-medium</code></td>
+                                    <td>600 weight</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-weight-bold</code></td>
+                                    <td>700 weight</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-leading-tight</code></td>
+                                    <td>Heading line height</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-leading-normal</code></td>
+                                    <td>Body line height</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details data-is="dropdown">
+                    <summary>Spacing Tokens</summary>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Value</th>
+                                    <th>Pixels</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>--rim-space-1</code></td>
+                                    <td>0.25rem</td>
+                                    <td>4px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-2</code></td>
+                                    <td>0.5rem</td>
+                                    <td>8px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-3</code></td>
+                                    <td>0.75rem</td>
+                                    <td>12px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-4</code></td>
+                                    <td>1rem</td>
+                                    <td>16px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-5</code></td>
+                                    <td>1.5rem</td>
+                                    <td>24px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-6</code></td>
+                                    <td>2rem</td>
+                                    <td>32px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-7</code></td>
+                                    <td>3rem</td>
+                                    <td>48px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-8</code></td>
+                                    <td>4rem</td>
+                                    <td>64px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-9</code></td>
+                                    <td>6rem</td>
+                                    <td>96px</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-space-10</code></td>
+                                    <td>8rem</td>
+                                    <td>128px</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details data-is="dropdown">
+                    <summary>Border, Shadow & Layout Tokens</summary>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>--rim-border-width</code></td>
+                                    <td>Border width (1px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-border-style</code></td>
+                                    <td>Border style (solid)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-radius</code></td>
+                                    <td>Border radius (0px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-shadow-sm</code></td>
+                                    <td>Small shadow</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-shadow-md</code></td>
+                                    <td>Medium shadow</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-shadow-hard</code></td>
+                                    <td>Hard offset shadow</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-width-reading</code></td>
+                                    <td>Reading container (680px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-width-page</code></td>
+                                    <td>Page container (1080px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-transition</code></td>
+                                    <td>Default transition</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-transition-fast</code></td>
+                                    <td>Fast transition</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--rim-transition-slow</code></td>
+                                    <td>Slow transition</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+            </section>
+
+
+            <!-- Complete api -->
+            <section class="docs-section" data-is="stack">
+                <h2>Complete API Reference</h2>
+                <p>
+                    Every data attribute, variant and modifier in RIM CSS
+                    at a glance.
+                </p>
+
+                <h3>Core Attributes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Values</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>data-theme</code></td>
+                            <td><code>light</code> <code>dark</code></td>
+                            <td>Set theme (on <code>&lt;html&gt;</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-is</code></td>
+                            <td><em>see component list</em></td>
+                            <td>Declare what an element IS</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-variant</code></td>
+                            <td><em>see variant list</em></td>
+                            <td>Which version of a component</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-size</code></td>
+                            <td><code>sm</code> <code>lg</code></td>
+                            <td>Size override (default is medium)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Layout Attributes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Values</th>
+                            <th>Used On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>data-is="container"</code></td>
+                            <td>—</td>
+                            <td>1080px centered wrapper</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-is="container-reading"</code></td>
+                            <td>—</td>
+                            <td>680px reading wrapper</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-is="container-full"</code></td>
+                            <td>—</td>
+                            <td>100% width wrapper</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-is="stack"</code></td>
+                            <td>—</td>
+                            <td>Vertical spacing</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-gap</code></td>
+                            <td><code>sm</code> <code>lg</code></td>
+                            <td>Stack gap size</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-is="grid"</code></td>
+                            <td>—</td>
+                            <td>Responsive grid</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-cols</code></td>
+                            <td><code>2</code> <code>3</code></td>
+                            <td>Force grid columns</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Component Attributes</h3>
+                <div data-is="codeblock">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Attribute</th>
+                                <th>Variants</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Button</td>
+                                <td><em>auto-styled</em></td>
+                                <td><code>primary</code> <code>accent</code> + <code>disabled</code></td>
+                            </tr>
+                            <tr>
+                                <td>Link as Button</td>
+                                <td><code>data-is="button"</code></td>
+                                <td><code>primary</code> <code>accent</code> + <code>aria-disabled</code></td>
+                            </tr>
+                            <tr>
+                                <td>Card</td>
+                                <td><code>data-is="card"</code></td>
+                                <td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Tag</td>
+                                <td><code>data-is="tag"</code></td>
+                                <td><code>accent</code></td>
+                            </tr>
+                            <tr>
+                                <td>Callout</td>
+                                <td><code>data-is="callout"</code></td>
+                                <td><code>info</code> <code>warning</code> <code>success</code> <code>error</code></td>
+                            </tr>
+                            <tr>
+                                <td>Code Block</td>
+                                <td><code>data-is="codeblock"</code></td>
+                                <td><code>data-label="filename"</code></td>
+                            </tr>
+                            <tr>
+                                <td>Breadcrumb</td>
+                                <td><code>data-is="breadcrumb"</code></td>
+                                <td><code>aria-current="page"</code></td>
+                            </tr>
+                            <tr>
+                                <td>TOC</td>
+                                <td><code>data-is="toc"</code></td>
+                                <td><code>aria-current="true"</code></td>
+                            </tr>
+                            <tr>
+                                <td>Divider</td>
+                                <td><code>data-is="divider"</code></td>
+                                <td><code>decorative</code></td>
+                            </tr>
+                            <tr>
+                                <td>Dropdown</td>
+                                <td><code>data-is="dropdown"</code></td>
+                                <td><code>menu</code></td>
+                            </tr>
+                            <tr>
+                                <td>Dropdown Group</td>
+                                <td><code>data-is="dropdown-group"</code></td>
+                                <td>—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>State Attributes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Type</th>
+                            <th>Used For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>disabled</code></td>
+                            <td>Native HTML</td>
+                            <td>Disabled buttons (strikethrough text)</td>
+                        </tr>
+                        <tr>
+                            <td><code>aria-disabled="true"</code></td>
+                            <td>ARIA</td>
+                            <td>Disabled links styled as buttons</td>
+                        </tr>
+                        <tr>
+                            <td><code>aria-current="page"</code></td>
+                            <td>ARIA</td>
+                            <td>Current page in breadcrumb</td>
+                        </tr>
+                        <tr>
+                            <td><code>aria-current="true"</code></td>
+                            <td>ARIA</td>
+                            <td>Active item in TOC</td>
+                        </tr>
+                        <tr>
+                            <td><code>open</code></td>
+                            <td>Native HTML</td>
+                            <td>Pre-opened dropdown</td>
+                        </tr>
+                        <tr>
+                            <td><code>data-danger</code></td>
+                            <td>Custom</td>
+                            <td>Destructive menu items (red)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
+            <footer data-is="stack" data-gap="sm" style="padding-top: var(--rim-space-7);">
+                <hr data-is="divider" data-variant="decorative">
+                <p>
+                    <strong>&copy;RIM CSS</strong> by <a href="https://github.com/ronish-maharjan"
+                        target="_blank">@ronish</a>
+                </p>
+                <p>
+                    <small>
+                        CSS for geeks Zero dependencies.
+                        Pure CSS.
+                        </br>
+                        Open source under MIT license.
+                    </small>
+                </p>
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- Theme & interaction scripts -->
+    <script>
+        // Load saved theme or detect system preference
+        (function () {
+            var saved = localStorage.getItem('rim-theme');
+            var system = window.matchMedia(
+                '(prefers-color-scheme: dark)'
+            ).matches ? 'dark' : 'light';
+            document.documentElement.setAttribute(
+                'data-theme', saved || system
+            );
+        })();
+
+        // Theme toggle button
+        document.querySelector('[data-toggle-theme]')
+            .addEventListener('click', function () {
+                var html = document.documentElement;
+                var current = html.getAttribute('data-theme');
+                var next = current === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('rim-theme', next);
+            });
+
+        // Close menu dropdowns on outside click
+        document.addEventListener('click', function (e) {
+            document.querySelectorAll(
+                '[data-is="dropdown"][data-variant="menu"][open]'
+            ).forEach(function (dropdown) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.removeAttribute('open');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

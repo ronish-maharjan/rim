@@ -1,0 +1,461 @@
+/* ================================================
+   RIM CSS — Base Typography & Elements
+   Semantic HTML, styled automatically.
+   Write HTML. It looks good. That's the deal.
+   ================================================ */
+
+@layer rim-base {
+
+    /* ================================
+     BODY
+     ================================ */
+    body {
+        font-family: var(--rim-font-body);
+        font-size: var(--rim-text-base);
+        font-weight: var(--rim-weight-normal);
+        line-height: var(--rim-leading-normal);
+        color: var(--rim-text);
+        background-color: var(--rim-bg);
+
+        /* Subtle texture — two dot grids at different scales
+       create pseudo-random grain. Adds life without
+       disturbing reading. */
+        background-image:
+            radial-gradient(circle, var(--rim-texture-dot-1) 1px, transparent 1px),
+            radial-gradient(circle, var(--rim-texture-dot-2) 0.5px, transparent 0.5px);
+        background-size: 4px 4px, 7px 7px;
+        background-position: 0 0, 3px 3px;
+    }
+
+
+    /* ================================
+     SELECTION
+     ================================ */
+    ::selection {
+        background-color: var(--rim-selection-bg);
+        color: var(--rim-selection-text);
+    }
+
+
+    /* ================================
+     HEADINGS
+     Space Grotesk — bold, tight, structural.
+     h1 hits like a manga title panel.
+     h6 is small, uppercase, editorial.
+     ================================ */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--rim-font-heading);
+        font-weight: var(--rim-weight-bold);
+        line-height: var(--rim-leading-tight);
+        letter-spacing: var(--rim-tracking-tight);
+        color: var(--rim-text);
+    }
+
+    h1 {
+        font-size: var(--rim-text-h1);
+        margin-bottom: var(--rim-space-5);
+    }
+
+    h2 {
+        font-size: var(--rim-text-h2);
+        margin-top: var(--rim-space-8);
+        margin-bottom: var(--rim-space-4);
+    }
+
+    h3 {
+        font-size: var(--rim-text-h3);
+        margin-top: var(--rim-space-7);
+        margin-bottom: var(--rim-space-3);
+    }
+
+    h4 {
+        font-size: var(--rim-text-h4);
+        margin-top: var(--rim-space-6);
+        margin-bottom: var(--rim-space-3);
+    }
+
+    h5 {
+        font-size: var(--rim-text-h5);
+        margin-top: var(--rim-space-6);
+        margin-bottom: var(--rim-space-2);
+    }
+
+    h6 {
+        font-size: var(--rim-text-h6);
+        margin-top: var(--rim-space-6);
+        margin-bottom: var(--rim-space-2);
+        text-transform: uppercase;
+        letter-spacing: var(--rim-tracking-wide);
+    }
+
+    /* First heading in a container — no top gap */
+    :is(h1, h2, h3, h4, h5, h6):first-child {
+        margin-top: 0;
+    }
+
+
+    /* ================================
+     PARAGRAPH
+     ================================ */
+    p {
+        margin-bottom: var(--rim-space-4);
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    /* ================================
+     LINKS
+     Accent colored. Underline pulls closer on hover.
+     Every link feels intentional.
+     ================================ */
+    a {
+        color: var(--rim-accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1px;
+        transition:
+            color var(--rim-transition),
+            text-underline-offset var(--rim-transition);
+    }
+
+    a:hover {
+        color: var(--rim-accent-hover);
+        text-underline-offset: 1px;
+    }
+
+    a:focus-visible {
+        outline: 2px solid var(--rim-focus-color);
+        outline-offset: var(--rim-focus-offset);
+    }
+
+
+    /* ================================
+     INLINE ELEMENTS
+     ================================ */
+    strong,
+    b {
+        font-weight: var(--rim-weight-medium);
+    }
+
+    em,
+    i {
+        font-style: italic;
+    }
+
+    /* Mark — highlighted with accent color.
+     Light mode: orange tint. Dark mode: green tint.
+     Your DNA shows even in highlighted text. */
+    mark {
+        background-color: var(--rim-highlight);
+        color: var(--rim-text);
+        padding: 0.1em 0.35em;
+    }
+
+    small {
+        font-size: var(--rim-text-sm);
+        color: var(--rim-muted);
+    }
+
+    abbr[title] {
+        text-decoration: underline dotted;
+        text-underline-offset: 3px;
+        cursor: help;
+    }
+
+
+    /* ================================
+     BLOCKQUOTE
+     Left border in accent color.
+     Italic, muted — the voice steps back
+     to let the quote speak.
+     ================================ */
+    blockquote {
+        border-left: 2px solid var(--rim-accent);
+        padding-left: var(--rim-space-5);
+        margin: var(--rim-space-6) 0;
+        font-style: italic;
+        color: var(--rim-muted);
+    }
+
+    blockquote p:last-child {
+        margin-bottom: 0;
+    }
+
+    blockquote cite {
+        display: block;
+        margin-top: var(--rim-space-3);
+        font-size: var(--rim-text-sm);
+        font-style: normal;
+        color: var(--rim-muted);
+    }
+
+    blockquote cite::before {
+        content: "— ";
+    }
+
+
+    /* ================================
+     LISTS
+     ================================ */
+    ul,
+    ol {
+        padding-left: var(--rim-space-5);
+        margin-bottom: var(--rim-space-4);
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    li {
+        margin-bottom: var(--rim-space-2);
+    }
+
+    li:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Nested lists */
+    li>ul,
+    li>ol {
+        margin-top: var(--rim-space-2);
+        margin-bottom: 0;
+    }
+
+
+    /* ================================
+     HORIZONTAL RULE
+     ================================ */
+    hr {
+        border: none;
+        border-top: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        margin: var(--rim-space-7) 0;
+    }
+
+
+    /* ================================
+     CODE
+     Fira Code — monospace with character.
+     Inline code gets a border. Manga-panel precision.
+     ================================ */
+
+    /* All monospace elements share the font */
+    code,
+    kbd,
+    samp {
+        font-family: var(--rim-font-code);
+    }
+
+    /* Inline code */
+    code {
+        font-size: 0.9em;
+        background-color: var(--rim-code-bg);
+        padding: 0.15em 0.4em;
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    /* Code blocks */
+    pre {
+        margin: var(--rim-space-6) 0;
+        overflow-x: auto;
+        background-color: var(--rim-code-bg);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    pre code {
+        display: block;
+        padding: var(--rim-space-4);
+        font-size: var(--rim-text-sm);
+        line-height: var(--rim-leading-code);
+        background: none;
+        border: none;
+    }
+
+    /* Keyboard input — looks like a physical key.
+     Hard shadow gives it that manga depth. */
+    kbd {
+        font-size: 0.85em;
+        padding: 0.15em 0.45em;
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        box-shadow: var(--rim-shadow-hard);
+        background-color: var(--rim-surface);
+    }
+
+    /* Sample output */
+    samp {
+        font-size: 0.9em;
+    }
+
+
+    /* ================================
+     FIGURE & MEDIA
+     ================================ */
+    figure {
+        margin: var(--rim-space-6) 0;
+    }
+
+    figcaption {
+        margin-top: var(--rim-space-2);
+        font-size: var(--rim-text-sm);
+        color: var(--rim-muted);
+    }
+
+
+    /* ================================
+     TABLE
+     Clean, readable, sharp borders.
+     ================================ */
+    table {
+        width: 100%;
+        margin: var(--rim-space-6) 0;
+        font-size: var(--rim-text-sm);
+    }
+
+    th,
+    td {
+        padding: var(--rim-space-3) var(--rim-space-4);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        font-family: var(--rim-font-heading);
+        font-weight: var(--rim-weight-bold);
+        background-color: var(--rim-surface);
+    }
+
+    caption {
+        margin-bottom: var(--rim-space-3);
+        font-size: var(--rim-text-sm);
+        color: var(--rim-muted);
+        text-align: left;
+        caption-side: top;
+    }
+
+
+    /* ================================
+     FORMS
+     Sharp corners. Thin borders.
+     Clean inputs that feel intentional.
+     ================================ */
+    label {
+        display: block;
+        margin-bottom: var(--rim-space-2);
+        font-weight: var(--rim-weight-medium);
+        font-size: var(--rim-text-sm);
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+    textarea,
+    select {
+        display: block;
+        width: 100%;
+        padding: var(--rim-space-3) var(--rim-space-4);
+        font-family: var(--rim-font-body);
+        font-size: var(--rim-text-base);
+        color: var(--rim-text);
+        background-color: var(--rim-surface);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        transition: box-shadow var(--rim-transition);
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
+    textarea:focus,
+    select:focus {
+        outline: 2px solid var(--rim-focus-color);
+        outline-offset: var(--rim-focus-offset);
+    }
+
+    /* Placeholder text */
+    ::placeholder {
+        color: var(--rim-muted);
+        opacity: 1;
+    }
+
+    fieldset {
+        margin: var(--rim-space-6) 0;
+        padding: var(--rim-space-5);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    legend {
+        font-family: var(--rim-font-heading);
+        font-weight: var(--rim-weight-bold);
+        padding: 0 var(--rim-space-2);
+    }
+
+
+    /* ================================
+     BUTTON (default style)
+     Every <button> looks good immediately.
+     Variants come from the component layer.
+
+     Hard shadow on hover — element lifts.
+     Active press — element pushes down.
+     Disabled — strikethrough. Cancelled means cancelled.
+     ================================ */
+    button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--rim-space-2);
+        padding: var(--rim-space-3) var(--rim-space-5);
+        font-family: var(--rim-font-body);
+        font-size: var(--rim-text-sm);
+        font-weight: var(--rim-weight-medium);
+        line-height: 1;
+        color: var(--rim-text);
+        background-color: var(--rim-surface);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        cursor: pointer;
+        transition:
+            box-shadow var(--rim-transition),
+            transform var(--rim-transition),
+            background-color var(--rim-transition);
+    }
+
+    button:hover {
+        box-shadow: var(--rim-shadow-hard);
+    }
+
+    button:focus-visible {
+        outline: 2px solid var(--rim-focus-color);
+        outline-offset: var(--rim-focus-offset);
+    }
+
+    /* Press down — the button lands */
+    button:active {
+        box-shadow: none;
+        transform: translate(1px, 1px);
+    }
+
+    /* Disabled — cancelled means cancelled */
+    button[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+        text-decoration: line-through;
+    }
+
+    button[disabled]:hover {
+        box-shadow: none;
+    }
+
+    button[disabled]:active {
+        transform: none;
+    }
+}

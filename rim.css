@@ -1,0 +1,23 @@
+@layer rim-reset, rim-tokens, rim-base, rim-layout, rim-components, rim-utilities;
+
+/* Core */
+@import url("core/reset.css");
+@import url("core/tokens.css");
+@import url("core/typography.css");
+
+/* Layout */
+@import url("layout/container.css");
+@import url("layout/stack.css");
+@import url("layout/grid.css");
+@import url("layout/sidebar.css");
+
+/* Components */
+@import url("components/button.css");
+@import url("components/card.css");
+@import url("components/tag.css");
+@import url("components/callout.css");
+@import url("components/codeblock.css");
+@import url("components/breadcrumb.css");
+@import url("components/toc.css");
+@import url("components/divider.css");
+@import url("components/dropdown.css");

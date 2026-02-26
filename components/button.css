@@ -1,0 +1,173 @@
+/* ================================================
+   RIM CSS — Button Component
+   
+   Base button style lives in typography.css (auto-styled).
+   This file adds VARIANTS and LINK-AS-BUTTON support.
+
+   Variants:
+     data-variant="primary" → filled accent button
+     data-variant="accent"  → outlined accent button
+     disabled               → strikethrough, muted
+
+   Link as button:
+     <a data-is="button" href="#">Link Button</a>
+     Gets identical styles. Same variants work.
+
+   Sizes:
+     data-size="sm" → compact
+     data-size="lg" → generous
+   ================================================ */
+
+@layer rim-components {
+
+    /* ================================
+     LINK AS BUTTON
+     Make <a> look and behave like <button>.
+     Inherits all base button styles.
+     ================================ */
+    a[data-is="button"] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--rim-space-2);
+        padding: var(--rim-space-3) var(--rim-space-5);
+        font-family: var(--rim-font-body);
+        font-size: var(--rim-text-sm);
+        font-weight: var(--rim-weight-medium);
+        line-height: 1;
+        color: var(--rim-text);
+        background-color: var(--rim-surface);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+            box-shadow var(--rim-transition),
+            transform var(--rim-transition),
+            background-color var(--rim-transition);
+    }
+
+    a[data-is="button"]:hover {
+        box-shadow: var(--rim-shadow-hard);
+        color: var(--rim-text);
+    }
+
+    a[data-is="button"]:focus-visible {
+        outline: 2px solid var(--rim-focus-color);
+        outline-offset: var(--rim-focus-offset);
+    }
+
+    a[data-is="button"]:active {
+        box-shadow: none;
+        transform: translate(1px, 1px);
+    }
+
+
+    /* ================================
+     VARIANT: PRIMARY
+     Filled button. Accent background.
+     The main call to action.
+     
+     Works on both <button> and <a>.
+     ================================ */
+    button[data-variant="primary"],
+    a[data-is="button"][data-variant="primary"] {
+        background-color: var(--rim-surface);
+        color: var(--rim-text);
+        border-color: var(--rim-text);
+    }
+
+    button[data-variant="primary"]:hover,
+    a[data-is="button"][data-variant="primary"]:hover {
+        background-color: var(--rim-text);
+        border-color: var(--rim-text);
+        box-shadow: var(--rim-shadow-hard);
+        color: var(--rim-bg);
+    }
+
+
+    /* ================================
+     VARIANT: ACCENT
+     Outlined button. Accent border and text.
+     Secondary call to action.
+     ================================ */
+    button[data-variant="accent"],
+    a[data-is="button"][data-variant="accent"] {
+        background-color: var(--rim-accent);
+        color: var(--rim-bg);
+        border-color: var(--rim-accent);
+    }
+
+    button[data-variant="accent"]:hover,
+    a[data-is="button"][data-variant="accent"]:hover {
+        background-color: var(--rim-accent);
+        color: var(--rim-selection-text);
+        box-shadow: var(--rim-shadow-hard);
+    }
+
+
+    /* ================================
+     DISABLED — Link version
+     <a> doesn't support [disabled] attribute.
+     Use aria-disabled="true" instead.
+     
+     Cancelled means cancelled.
+     Strikethrough. Muted. No interaction.
+     ================================ */
+    a[data-is="button"][aria-disabled="true"] {
+        cursor: not-allowed;
+        opacity: 0.5;
+        text-decoration: line-through;
+        pointer-events: none;
+    }
+
+
+    /* ================================
+     DISABLED + VARIANT combinations
+     Disabled overrides variant colors.
+     Everything goes muted.
+     ================================ */
+    button[disabled][data-variant="primary"],
+    button[disabled][data-variant="accent"],
+    a[data-is="button"][aria-disabled="true"][data-variant="primary"],
+    a[data-is="button"][aria-disabled="true"][data-variant="accent"] {
+        background-color: var(--rim-surface);
+        color: var(--rim-text);
+        border-color: var(--rim-border);
+        opacity: 0.5;
+        text-decoration: line-through;
+    }
+
+    button[disabled][data-variant="primary"]:hover,
+    button[disabled][data-variant="accent"]:hover,
+    a[data-is="button"][aria-disabled="true"][data-variant="primary"]:hover,
+    a[data-is="button"][aria-disabled="true"][data-variant="accent"]:hover {
+        box-shadow: none;
+        background-color: var(--rim-surface);
+        color: var(--rim-text);
+    }
+
+
+    /* ================================
+     SIZE: SMALL
+     Compact button for tight spaces.
+     Tags, inline actions, secondary controls.
+     ================================ */
+    button[data-size="sm"],
+    a[data-is="button"][data-size="sm"] {
+        padding: var(--rim-space-2) var(--rim-space-3);
+        font-size: var(--rim-text-xs);
+    }
+
+
+    /* ================================
+     SIZE: LARGE
+     Generous button for hero sections.
+     Primary CTAs, landing pages.
+     ================================ */
+    button[data-size="lg"],
+    a[data-is="button"][data-size="lg"] {
+        padding: var(--rim-space-4) var(--rim-space-6);
+        font-size: var(--rim-text-base);
+    }
+}

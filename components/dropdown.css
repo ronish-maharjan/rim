@@ -1,0 +1,268 @@
+/* ================================================
+   RIM CSS — Dropdown Component
+   
+   Built on native <details> + <summary>.
+   Zero JavaScript for basic functionality.
+   Keyboard accessible. Screen reader friendly.
+   
+   Two variants:
+   
+   CONTENT DROPDOWN (expandable/collapsible):
+     <details data-is="dropdown">
+       <summary>Click to expand</summary>
+       <p>Hidden content revealed here.</p>
+     </details>
+
+   MENU DROPDOWN (action list):
+     <details data-is="dropdown" data-variant="menu">
+       <summary>Options</summary>
+       <ul>
+         <li><a href="#">Edit</a></li>
+         <li><a href="#">Delete</a></li>
+       </ul>
+     </details>
+
+   GROUP (accordion-like):
+     <div data-is="dropdown-group">
+       <details data-is="dropdown">...</details>
+       <details data-is="dropdown">...</details>
+     </div>
+   ================================================ */
+
+@layer rim-components {
+
+    /* ================================
+     BASE DROPDOWN
+     Content reveal — expandable sections.
+     FAQ, collapsible panels, spoiler text.
+     ================================ */
+    [data-is="dropdown"] {
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        background-color: var(--rim-surface);
+        overflow: hidden;
+    }
+
+
+    /* ================================
+     SUMMARY (the trigger)
+     Looks like a clickable header.
+     Cursor pointer. Accent on hover.
+     Custom marker replaces browser default.
+     ================================ */
+    [data-is="dropdown"] summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--rim-space-3) var(--rim-space-5);
+        font-family: var(--rim-font-body);
+        font-size: var(--rim-text-sm);
+        font-weight: var(--rim-weight-medium);
+        color: var(--rim-text);
+        cursor: pointer;
+        list-style: none;
+        transition: background-color var(--rim-transition);
+    }
+
+    /* Remove default browser marker */
+    [data-is="dropdown"] summary::-webkit-details-marker {
+        display: none;
+    }
+
+    [data-is="dropdown"] summary::marker {
+        display: none;
+        content: "";
+    }
+
+    /* Custom arrow indicator — sharp, manga-like */
+    [data-is="dropdown"] summary::after {
+        content: "+";
+        font-family: var(--rim-font-code);
+        font-size: var(--rim-text-base);
+        font-weight: var(--rim-weight-normal);
+        color: var(--rim-muted);
+        transition: transform var(--rim-transition);
+        flex-shrink: 0;
+        margin-left: var(--rim-space-4);
+    }
+
+    /* Hover state */
+    [data-is="dropdown"] summary:hover {
+        background-color: var(--rim-code-bg);
+    }
+
+    /* Focus state */
+    [data-is="dropdown"] summary:focus-visible {
+        outline: 2px solid var(--rim-focus-color);
+        outline-offset: calc(var(--rim-focus-offset) * -1);
+    }
+
+    /* Open state — rotate indicator */
+    [data-is="dropdown"][open] summary::after {
+        content: "−";
+    }
+
+    /* Open state — border below summary */
+    [data-is="dropdown"][open] summary {
+        border-bottom: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+
+    /* ================================
+     DROPDOWN CONTENT
+     Everything after <summary>.
+     Padded, clean, readable.
+     ================================ */
+    [data-is="dropdown"]>*:not(summary) {
+        padding: var(--rim-space-4) var(--rim-space-5);
+    }
+
+    /* Typography inside dropdown */
+    [data-is="dropdown"]>*:not(summary) p {
+        font-size: var(--rim-text-sm);
+        color: var(--rim-muted);
+        margin-bottom: var(--rim-space-3);
+    }
+
+    [data-is="dropdown"]>*:not(summary) p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    /* ================================
+     VARIANT: MENU
+     Positioned dropdown for actions/links.
+     Summary looks like a button.
+     List appears below with options.
+     ================================ */
+    [data-is="dropdown"][data-variant="menu"] {
+        position: relative;
+        display: inline-block;
+        border: none;
+        background: none;
+        overflow: visible;
+    }
+
+    /* Menu trigger looks like a button */
+    [data-is="dropdown"][data-variant="menu"] summary {
+        padding: var(--rim-space-3) var(--rim-space-5);
+        background-color: var(--rim-surface);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        transition:
+            box-shadow var(--rim-transition),
+            background-color var(--rim-transition);
+    }
+
+    [data-is="dropdown"][data-variant="menu"] summary:hover {
+        box-shadow: var(--rim-shadow-hard);
+        background-color: var(--rim-surface);
+    }
+
+    [data-is="dropdown"][data-variant="menu"] summary:active {
+        box-shadow: none;
+        transform: translate(1px, 1px);
+    }
+
+    /* Arrow indicator for menu — chevron down  */
+    [data-is="dropdown"][data-variant="menu"] summary::after {
+        content: "▼";
+        font-size: var(--rim-text-lg);
+    }
+
+
+    [data-is="dropdown"][data-variant="menu"][open] summary::after {
+        content: "▲";
+    }
+
+    /* No border below summary for menu variant */
+    [data-is="dropdown"][data-variant="menu"][open] summary {
+        border-bottom: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    /* Menu panel — positioned below trigger */
+    [data-is="dropdown"][data-variant="menu"]>ul {
+        position: absolute;
+        top: calc(100% + var(--rim-space-1));
+        left: 0;
+        min-width: 180px;
+        padding: var(--rim-space-2) 0;
+        margin: 0;
+        list-style: none;
+        background-color: var(--rim-surface);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        box-shadow: var(--rim-shadow-md);
+        z-index: 100;
+    }
+
+    /* Menu items */
+    [data-is="dropdown"][data-variant="menu"]>ul li {
+        margin: 0;
+    }
+
+    [data-is="dropdown"][data-variant="menu"]>ul a {
+        display: block;
+        padding: var(--rim-space-2) var(--rim-space-4);
+        font-size: var(--rim-text-sm);
+        color: var(--rim-text);
+        text-decoration: none;
+        transition:
+            background-color var(--rim-transition),
+            color var(--rim-transition);
+    }
+
+    [data-is="dropdown"][data-variant="menu"]>ul a:hover {
+        background-color: var(--rim-code-bg);
+        color: var(--rim-accent);
+    }
+
+    /* Separator inside menu */
+    [data-is="dropdown"][data-variant="menu"]>ul hr {
+        margin: var(--rim-space-2) 0;
+        border: none;
+        border-top: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    /* Danger item — destructive actions */
+    [data-is="dropdown"][data-variant="menu"]>ul a[data-danger] {
+        color: var(--rim-error);
+    }
+
+    [data-is="dropdown"][data-variant="menu"]>ul a[data-danger]:hover {
+        background-color: var(--rim-error-bg);
+        color: var(--rim-error);
+    }
+
+
+    /* ================================
+     DROPDOWN GROUP
+     Stack dropdowns together.
+     Adjacent dropdowns share borders.
+     Accordion-like appearance.
+     ================================ */
+    [data-is="dropdown-group"] {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Remove gaps — dropdowns touch each other */
+    [data-is="dropdown-group"] [data-is="dropdown"] {
+        border-radius: 0;
+    }
+
+    /* Remove double borders between items */
+    [data-is="dropdown-group"] [data-is="dropdown"]+[data-is="dropdown"] {
+        border-top: none;
+    }
+
+    /* First item keeps top edge */
+    [data-is="dropdown-group"] [data-is="dropdown"]:first-child {
+        border-radius: var(--rim-radius) var(--rim-radius) 0 0;
+    }
+
+    /* Last item keeps bottom edge */
+    [data-is="dropdown-group"] [data-is="dropdown"]:last-child {
+        border-radius: 0 0 var(--rim-radius) var(--rim-radius);
+    }
+}

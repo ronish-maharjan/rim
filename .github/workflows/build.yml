@@ -1,0 +1,55 @@
+name: Build RIM CSS
+
+on:
+  push:
+    branches: [main]
+
+# Prevent concurrent builds
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      # 1. Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Setup Node.js (no npm install needed — zero deps)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 3. Build CSS (no npm install — zero dependencies)
+      - name: Build CSS
+        run: node build.js
+
+      # 4. Check if dist files changed
+      - name: Check for changes
+        id: changes
+        run: |
+          git add dist/
+          if git diff --staged --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      # 5. Commit and push built files (only if changed)
+      - name: Commit built files
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add dist/
+          git commit -m "build: compile rim.css v$(node -p "require('./package.json').version")"
+          git push

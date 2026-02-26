@@ -1,0 +1,56 @@
+/* ================================================
+   RIM CSS - Tag
+   
+   Small labels for categories, topics, status.
+   Compact. Sharp. Earns its space.
+
+   Usage:
+     <span data-is="tag">CSS</span>
+     <span data-is="tag" data-variant="accent">New</span>
+   ================================================ */
+
+@layer rim-components {
+
+    [data-is="tag"] {
+        display: inline-block;
+        padding: var(--rim-space-1) var(--rim-space-3);
+        font-family: var(--rim-font-code);
+        font-size: var(--rim-text-xs);
+        font-weight: var(--rim-weight-normal);
+        line-height: 1.4;
+        color: var(--rim-text);
+        background-color: var(--rim-surface);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        white-space: nowrap;
+        vertical-align: middle;
+
+        /* Stretch protection — prevents tag from expanding
+       when inside flex/grid containers.
+       Tag stays its natural size. Always. */
+        width: fit-content;
+        height: fit-content;
+        align-self: flex-start;
+    }
+
+    /* ================================
+     VARIANT: ACCENT
+     Highlighted tag for emphasis.
+     "New", "Featured", "Important"
+     ================================ */
+    [data-is="tag"][data-variant="accent"] {
+        background-color: var(--rim-accent);
+        color: var(--rim-selection-text);
+        border-color: var(--rim-accent);
+    }
+
+
+    /* ================================
+     TAGS INSIDE OTHER COMPONENTS
+     When tags appear in cards or 
+     other contexts, space them.
+     ================================ */
+    [data-is="tag"]+[data-is="tag"] {
+        margin-left: var(--rim-space-2);
+    }
+}

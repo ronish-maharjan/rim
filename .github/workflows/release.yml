@@ -1,0 +1,52 @@
+name: Release RIM CSS
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build CSS
+        run: node build.js
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "RIM CSS ${{ steps.version.outputs.VERSION }}"
+          body: |
+            ## RIM CSS ${{ steps.version.outputs.VERSION }}
+
+            **Raw Intentional Minimal** — CSS that earns its place.
+
+            ### Quick Start
+            ```html
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/${{ github.repository }}@${{ steps.version.outputs.VERSION }}/dist/rim.min.css">
+            ```
+
+            ### Downloads
+            - `rim.css` — Full version with comments
+            - `rim.min.css` — Minified for production
+
+            See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for details.
+          files: |
+            dist/rim.css
+            dist/rim.min.css

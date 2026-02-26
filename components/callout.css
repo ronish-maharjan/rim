@@ -1,0 +1,86 @@
+/* ================================================
+   RIM CSS — Callout / Alert Component
+   
+   Important information that needs attention.
+   Left border signals type. Background tint 
+   gives context without screaming.
+   
+   Usage:
+     <div data-is="callout">Default message</div>
+     <div data-is="callout" data-variant="info">...</div>
+     <div data-is="callout" data-variant="warning">...</div>
+     <div data-is="callout" data-variant="success">...</div>
+     <div data-is="callout" data-variant="error">...</div>
+   ================================================ */
+
+@layer rim-components {
+
+    [data-is="callout"] {
+        padding: var(--rim-space-4) var(--rim-space-5);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-left-width: 3px;
+        border-radius: var(--rim-radius);
+        background-color: var(--rim-surface);
+        font-size: var(--rim-text-sm);
+    }
+
+    /* Typography inside callouts */
+    [data-is="callout"] p {
+        margin-bottom: var(--rim-space-3);
+    }
+
+    [data-is="callout"] p:last-child {
+        margin-bottom: 0;
+    }
+
+    [data-is="callout"] code {
+        font-size: 0.85em;
+    }
+
+    /* Callout heading — if someone puts a heading inside */
+    [data-is="callout"] :is(h1, h2, h3, h4, h5, h6) {
+        margin-top: 0;
+        margin-bottom: var(--rim-space-2);
+        font-size: var(--rim-text-base);
+    }
+
+
+    /* ================================
+     VARIANT: INFO
+     Neutral information. Tips. Notes.
+     ================================ */
+    [data-is="callout"][data-variant="info"] {
+        border-left-color: var(--rim-info);
+        background-color: var(--rim-info-bg);
+    }
+
+
+    /* ================================
+     VARIANT: WARNING
+     Caution. Something to be aware of.
+     ================================ */
+    [data-is="callout"][data-variant="warning"] {
+        border-left-color: var(--rim-warning);
+        background-color: var(--rim-warning-bg);
+    }
+
+
+    /* ================================
+     VARIANT: SUCCESS
+     Confirmation. Positive outcome.
+     ================================ */
+    [data-is="callout"][data-variant="success"] {
+        border-left-color: var(--rim-success);
+        background-color: var(--rim-success-bg);
+    }
+
+
+    /* ================================
+     VARIANT: ERROR
+     Something went wrong. Critical.
+     ================================ */
+    [data-is="callout"][data-variant="error"] {
+        border-left-color: var(--rim-error);
+        background-color: var(--rim-error-bg);
+    }
+}

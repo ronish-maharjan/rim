@@ -1,0 +1,39 @@
+/* ================================================
+   RIM CSS — Container
+   Controls content width and centers it.
+   Three variants:
+     container         → 1080px (page width, grids, mixed)
+     container-reading → 680px  (blog text, focused reading)
+     container-full    → 100%   (edge to edge)
+   ================================================ */
+
+@layer rim-layout {
+
+    /* --- Page Container (default) --- */
+    [data-is="container"] {
+        width: 100%;
+        max-width: var(--rim-width-page);
+        margin-inline: auto;
+        padding: var(--rim-space-5);
+    }
+
+    /* --- Reading Container ---
+     Optimized for long-form text.
+     ~65-75 characters per line.
+     The width where eyes don't get tired. */
+    [data-is="container-reading"] {
+        width: 100%;
+        max-width: var(--rim-width-reading);
+        margin-inline: auto;
+        padding-inline: var(--rim-space-5);
+    }
+
+    /* --- Full Width Container ---
+     Edge to edge. No max-width.
+     Still has padding so content doesn't
+     touch screen edges on mobile. */
+    [data-is="container-full"] {
+        width: 100%;
+        padding-inline: var(--rim-space-5);
+    }
+}

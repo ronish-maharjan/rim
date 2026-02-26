@@ -1,0 +1,54 @@
+/* ================================================
+   RIM CSS — Breadcrumb Component
+   
+   Page path navigation. Shows where you are.
+   Separator generated automatically between items.
+   Current page uses aria-current="page".
+
+   Usage:
+     <nav data-is="breadcrumb">
+       <a href="/">Home</a>
+       <a href="/blog">Blog</a>
+       <a aria-current="page">This Post</a>
+     </nav>
+   ================================================ */
+
+@layer rim-components {
+
+    [data-is="breadcrumb"] {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--rim-space-1);
+        font-size: var(--rim-text-sm);
+    }
+
+    /* Links inside breadcrumb */
+    [data-is="breadcrumb"] a {
+        color: var(--rim-muted);
+        text-decoration: none;
+        transition: color var(--rim-transition);
+    }
+
+    [data-is="breadcrumb"] a:hover {
+        color: var(--rim-accent);
+    }
+
+    /* Separator — generated between items.
+     A forward slash. Muted. Functional. */
+    [data-is="breadcrumb"] a+a::before {
+        content: "/";
+        margin-right: var(--rim-space-1);
+        color: var(--rim-border);
+        pointer-events: none;
+    }
+
+    /* Current page — not a link, just text.
+     Darker color. Not clickable.
+     You are HERE. */
+    [data-is="breadcrumb"] a[aria-current="page"] {
+        color: var(--rim-text);
+        pointer-events: none;
+        font-weight: var(--rim-weight-medium);
+    }
+}

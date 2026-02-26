@@ -1,0 +1,184 @@
+/* ================================================
+   RIM CSS — Design Tokens
+   Every visual decision in one place.
+   Override any variable to customize RIM.
+   ================================================ */
+
+@layer rim-tokens {
+
+    /* ================================
+     GLOBAL TOKENS
+     These do NOT change per theme
+     ================================ */
+    :root {
+
+        /* --- Font Families --- */
+        --rim-font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+        --rim-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+        --rim-font-code: 'Fira Code', 'Consolas', 'Monaco', monospace;
+
+        /* --- Font Sizes (fluid) --- */
+        --rim-text-xs: 0.75rem;
+        --rim-text-sm: 0.875rem;
+        --rim-text-base: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
+        --rim-text-lg: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+
+        /* --- Heading Sizes (fluid, dramatic h1) --- */
+        --rim-text-h1: clamp(2.25rem, 3vw + 1.5rem, 3.5rem);
+        --rim-text-h2: clamp(1.75rem, 2vw + 1.25rem, 2.5rem);
+        --rim-text-h3: clamp(1.375rem, 1vw + 1.125rem, 1.75rem);
+        --rim-text-h4: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
+        --rim-text-h5: 1rem;
+        --rim-text-h6: 0.875rem;
+
+        /* --- Font Weights --- */
+        --rim-weight-normal: 400;
+        --rim-weight-medium: 600;
+        --rim-weight-bold: 700;
+
+        /* --- Line Heights --- */
+        --rim-leading-tight: 1.2;
+        --rim-leading-normal: 1.6;
+        --rim-leading-code: 1.5;
+
+        /* --- Letter Spacing --- */
+        --rim-tracking-tight: -0.02em;
+        --rim-tracking-normal: 0;
+        --rim-tracking-wide: 0.05em;
+
+        /* --- Spacing Scale (8px base) --- */
+        --rim-space-1: 0.25rem;
+        /*  4px  */
+        --rim-space-2: 0.5rem;
+        /*  8px  */
+        --rim-space-3: 0.75rem;
+        /* 12px  */
+        --rim-space-4: 1rem;
+        /* 16px  */
+        --rim-space-5: 1.5rem;
+        /* 24px  */
+        --rim-space-6: 2rem;
+        /* 32px  */
+        --rim-space-7: 3rem;
+        /* 48px  */
+        --rim-space-8: 4rem;
+        /* 64px  */
+        --rim-space-9: 6rem;
+        /* 96px  */
+        --rim-space-10: 8rem;
+        /* 128px */
+
+        /* --- Borders --- */
+        --rim-border-width: 1px;
+        --rim-border-style: solid;
+        --rim-radius: 0px;
+
+        /* --- Transitions --- */
+        --rim-transition-fast: 100ms ease;
+        --rim-transition: 150ms ease;
+        --rim-transition-slow: 300ms ease;
+
+        /* --- Layout Widths --- */
+        --rim-width-reading: 680px;
+        --rim-width-page: 1080px;
+    }
+
+
+    /* ================================
+     LIGHT THEME (default)
+     ================================ */
+    :root,
+    [data-theme="light"] {
+
+        /* --- Core Colors --- */
+        --rim-bg: #f4f5f7;
+        --rim-text: #000000;
+        --rim-accent: #ff4b2b;
+        --rim-accent-hover: #b45309;
+        --rim-muted: #71717a;
+        --rim-border: #d4d4d8;
+        --rim-surface: #f4f4f5;
+        --rim-border: #d4d4d8;
+        --rim-surface: #f4f4f5;
+
+        /* --- Code --- */
+        --rim-code-bg: #e9ebef;
+
+        /* --- Highlight (mark element) --- */
+        --rim-highlight: rgba(180, 83, 9, 0.15);
+
+        /* --- Semantic Colors --- */
+        --rim-info: #1d4ed8;
+        --rim-info-bg: rgba(29, 78, 216, 0.06);
+        --rim-warning: #b45309;
+        --rim-warning-bg: rgba(180, 83, 9, 0.06);
+        --rim-success: #15803d;
+        --rim-success-bg: rgba(21, 128, 61, 0.06);
+        --rim-error: #b91c1c;
+        --rim-error-bg: rgba(185, 28, 28, 0.06);
+
+        /* --- Texture --- */
+        --rim-texture-dot-1: rgba(0, 0, 0, 0.04);
+        --rim-texture-dot-2: rgba(0, 0, 0, 0.025);
+
+        /* --- Shadows --- */
+        --rim-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+        --rim-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08),
+            0 1px 2px rgba(0, 0, 0, 0.04);
+        --rim-shadow-hard: 2px 2px 0 #000000;
+
+        /* --- Focus --- */
+        --rim-focus-color: var(--rim-accent);
+        --rim-focus-offset: 2px;
+
+        /* --- Selection --- */
+        --rim-selection-bg: var(--rim-accent);
+        --rim-selection-text: #ffffff;
+    }
+
+
+    /* ================================
+     DARK THEME
+     ================================ */
+    [data-theme="dark"] {
+
+        /* --- Core Colors --- */
+        --rim-bg: #000000;
+        --rim-text: #ffffff;
+        --rim-accent: #22c55e;
+        --rim-accent-hover: #16a34a;
+        --rim-muted: #9ca3af;
+        --rim-border: #52525b;
+        --rim-surface: #27272a;
+
+        /* --- Code --- */
+        --rim-code-bg: #1a1a1a;
+
+        /* --- Highlight --- */
+        --rim-highlight: rgba(39, 235, 111, 0.535);
+
+        /* --- Semantic Colors --- */
+        --rim-info: #60a5fa;
+        --rim-info-bg: rgba(96, 165, 250, 0.08);
+        --rim-warning: #fbbf24;
+        --rim-warning-bg: rgba(251, 191, 36, 0.08);
+        --rim-success: #4ade80;
+        --rim-success-bg: rgba(74, 222, 128, 0.08);
+        --rim-error: #f87171;
+        --rim-error-bg: rgba(248, 113, 113, 0.08);
+
+        /* --- Texture (more subtle in dark mode) --- */
+        --rim-texture-dot-1: rgba(255, 255, 255, 0.02);
+        --rim-texture-dot-2: rgba(255, 255, 255, 0.012);
+
+        /* --- Shadows --- */
+        --rim-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+        --rim-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.5),
+            0 1px 2px rgba(0, 0, 0, 0.3);
+        --rim-shadow-hard: 2px 2px 0 #333333;
+
+        /* --- Selection --- */
+        --rim-selection-bg: var(--rim-accent);
+        --rim-selection-text: #000000;
+    }
+}

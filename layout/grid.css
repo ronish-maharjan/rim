@@ -1,0 +1,49 @@
+/* ================================================
+   RIM CSS — Grid
+   Auto-fit responsive grid by default.
+   Cards, galleries, feature sections — 
+   they just work.
+
+   Default: auto-fit, minimum 280px per item
+   data-cols="2": force 2 columns
+   data-cols="3": force 3 columns
+
+   On mobile, forced columns collapse to single
+   column automatically. No breakpoints needed.
+
+   Usage:
+     <div data-is="grid">               → auto-fit
+     <div data-is="grid" data-cols="2">  → 2 columns
+     <div data-is="grid" data-cols="3">  → 3 columns
+   ================================================ */
+
+@layer rim-layout {
+
+    /* --- Auto-fit Grid (default) ---
+     Items are at least 280px wide.
+     Grid figures out how many columns fit.
+     Grows and shrinks with the viewport.
+     No media queries. Pure CSS intelligence. */
+    [data-is="grid"] {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+        gap: var(--rim-space-5);
+
+    }
+
+    /* --- 2 Column Grid ---
+     Forces 2 columns on wide screens.
+     Collapses to 1 column below 500px.
+     No breakpoint — uses CSS min() instead. */
+    [data-is="grid"][data-cols="2"] {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--rim-space-5);
+    }
+
+    /* --- 3 Column Grid ---
+     Forces 3 columns on wide screens.
+     Naturally collapses as viewport shrinks. */
+    [data-is="grid"][data-cols="3"] {
+        grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    }
+}

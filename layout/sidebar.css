@@ -1,0 +1,222 @@
+/* ================================================
+   RIM CSS — Sidebar Layout
+   
+   Main content + supporting sidebar.
+   Breakpoint-free — uses intrinsic sizing.
+   When space is too narrow, sidebar stacks below.
+   
+   Right sidebar (default):
+     <div data-is="sidebar">
+       <main>Main content</main>
+       <aside>Sidebar</aside>
+     </div>
+   
+   Left sidebar (aside first in source):
+     <div data-is="sidebar">
+       <aside>Sidebar</aside>
+       <main>Main content</main>
+     </div>
+   
+   Sticky sidebar:
+     <aside data-sticky>...</aside>
+
+   Sidebar width variants:
+     default    → 260px basis
+     data-sidebar="narrow" → 200px basis
+     data-sidebar="wide"   → 320px basis
+   ================================================ */
+
+@layer rim-layout {
+
+    /* ================================
+     BASE SIDEBAR LAYOUT
+     Flexbox with wrap.
+     Main content grows massively (flex: 999).
+     Sidebar has a fixed basis but can grow.
+     When combined width exceeds container,
+     they wrap — no breakpoint needed.
+     ================================ */
+    [data-is="sidebar"] {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--rim-space-6);
+        align-items: flex-start;
+    }
+
+
+    /* ================================
+     MAIN CONTENT AREA
+     Takes as much space as possible.
+     min-inline-size: 60% ensures the sidebar
+     wraps BELOW when viewport is narrow.
+     Without this, content would squish 
+     too small before wrapping.
+     ================================ */
+    [data-is="sidebar"]>*:not(aside) {
+        flex-basis: 0;
+        flex-grow: 999;
+        min-inline-size: 60%;
+    }
+
+
+    /* ================================
+     SIDEBAR (aside)
+     Fixed basis width. Grows to fill 
+     remaining space. When stacked on 
+     mobile, takes full width.
+     ================================ */
+    [data-is="sidebar"]>aside {
+        flex-basis: 260px;
+    }
+
+
+    /* ================================
+     SIDEBAR WIDTH VARIANTS
+     ================================ */
+
+    /* Narrow sidebar — 200px basis
+     Compact. Tight spaces. Minimal navigation. */
+    [data-is="sidebar"][data-sidebar="narrow"]>aside {
+        flex-basis: 220px;
+    }
+
+    /* Wide sidebar — 320px basis
+     More room. Dashboard panels. Rich widgets. */
+    [data-is="sidebar"][data-sidebar="wide"]>aside {
+        flex-basis: 320px;
+    }
+
+
+    /* ================================
+     STICKY SIDEBAR
+     Sidebar sticks to the top while
+     main content scrolls. The sidebar 
+     stays visible — always accessible.
+     ================================ */
+    [data-is="sidebar"]>aside[data-sticky] {
+        position: sticky;
+        top: var(--rim-space-5);
+        max-height: calc(100dvh - var(--rim-space-5) * 2);
+        overflow-y: auto;
+    }
+
+
+    /* ================================
+     SIDEBAR STYLING
+     The aside gets a subtle visual 
+     boundary — a border on the side
+     facing the main content.
+     ================================ */
+
+    /* Right sidebar — border on left of aside */
+    [data-is="sidebar"]>*:not(aside)+aside {
+        padding-left: var(--rim-space-6);
+        border-left: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    /* Left sidebar — border on right of aside */
+    [data-is="sidebar"]>aside:first-child {
+        padding: var(--rim-space-5);
+        border-right: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    /* When stacked (sidebar takes full width),
+     remove side borders and add top border instead.
+     We detect "stacked" by checking if aside 
+     takes more than 50% width — meaning it wrapped.
+     
+     Since we can't detect wrap in CSS directly,
+     we use a container-width approach: when aside's 
+     flex-basis equals 100%, it has wrapped. The 
+     border styling will naturally look fine because
+     padding still provides spacing. But we override
+     with a media query for the border direction. */
+    @media (max-width: 640px) {
+        [data-is="sidebar"]>*:not(aside)+aside {
+            padding-left: 0;
+            padding-top: var(--rim-space-6);
+            border-left: none;
+            border-top: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        }
+
+        [data-is="sidebar"]>aside:first-child {
+            padding-right: 0;
+            padding-bottom: var(--rim-space-6);
+            border-right: none;
+            border-bottom: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        }
+
+        /* Sticky doesn't make sense when stacked */
+        [data-is="sidebar"]>aside[data-sticky] {
+            position: static;
+            max-height: none;
+            overflow-y: visible;
+        }
+    }
+
+
+    /* ================================
+     SIDEBAR INTERNAL TYPOGRAPHY
+     Aside content is slightly smaller
+     and more compact. Supporting role —
+     the main content is the star.
+     ================================ */
+    [data-is="sidebar"]>aside :is(h1, h2, h3, h4, h5, h6) {
+        font-size: var(--rim-text-sm);
+        text-transform: uppercase;
+        letter-spacing: var(--rim-tracking-wide);
+        color: var(--rim-muted);
+        margin-top: 0;
+        margin-bottom: var(--rim-space-3);
+        padding-bottom: var(--rim-space-2);
+        border-bottom: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    /* Sidebar links — clean navigation list */
+    [data-is="sidebar"]>aside nav a {
+        display: block;
+        padding: var(--rim-space-2) 0;
+        font-size: var(--rim-text-sm);
+        color: var(--rim-muted);
+        text-decoration: none;
+        border-bottom: var(--rim-border-width) var(--rim-border-style) transparent;
+        transition: color var(--rim-transition);
+    }
+
+    [data-is="sidebar"]>aside nav a:hover {
+        color: var(--rim-accent);
+    }
+
+    [data-is="sidebar"]>aside nav a[aria-current="page"],
+    [data-is="sidebar"]>aside nav a[aria-current="true"] {
+        color: var(--rim-accent);
+        font-weight: var(--rim-weight-medium);
+    }
+
+    /* Sidebar paragraphs */
+    [data-is="sidebar"]>aside>p {
+        font-size: var(--rim-text-sm);
+        color: var(--rim-muted);
+    }
+
+    /* Sidebar lists */
+    [data-is="sidebar"]>aside ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    [data-is="sidebar"]>aside ul li {
+        margin-bottom: var(--rim-space-1);
+    }
+
+    [data-is="sidebar"]>aside ul a {
+        font-size: var(--rim-text-sm);
+        color: var(--rim-muted);
+        text-decoration: none;
+        transition: color var(--rim-transition);
+    }
+
+    [data-is="sidebar"]>aside ul a:hover {
+        color: var(--rim-accent);
+    }
+}

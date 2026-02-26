@@ -1,0 +1,42 @@
+/* ================================================
+   RIM CSS — Divider Component
+   
+   Section separator with more presence than <hr>.
+   Default is clean. Decorative adds character.
+
+   Usage:
+     <hr data-is="divider">
+     <hr data-is="divider" data-variant="decorative">
+   ================================================ */
+
+@layer rim-components {
+
+    /* --- Default Divider ---
+     Slightly more presence than plain <hr>.
+     Uses accent color. Wider margin. */
+    [data-is="divider"] {
+        border: none;
+        border-top: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        margin: var(--rim-space-8) 0;
+    }
+
+
+    /* --- Decorative Divider ---
+     Three dots. Editorial style.
+     A visual pause in the reading flow.
+     Like a scene break in a novel. */
+    [data-is="divider"][data-variant="decorative"] {
+        border: none;
+        margin: var(--rim-space-8) 0;
+        text-align: center;
+    }
+
+    [data-is="divider"][data-variant="decorative"]::after {
+        content: "· · ·";
+        display: block;
+        font-family: var(--rim-font-body);
+        font-size: var(--rim-text-lg);
+        color: var(--rim-muted);
+        letter-spacing: 0.5em;
+    }
+}

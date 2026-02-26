@@ -1,0 +1,134 @@
+/* ================================================
+   RIM CSS — Card Component
+
+   A content container with visual boundaries.
+   Sharp corners. Thin border. Lifts on hover.
+   
+   Uses flexbox internally so children stack properly
+   even when the card is stretched by a grid.
+
+   Usage:
+     <article data-is="card">
+       <img src="..." alt="...">
+       <h3>Title</h3>
+       <p>Content</p>
+       <span data-is="tag">Category</span>
+     </article>
+   ================================================ */
+
+@layer rim-components {
+
+    [data-is="card"] {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--rim-surface);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        overflow: hidden;
+        align-items: flex-start;
+    }
+
+
+    /* ================================
+     CARD IMAGE
+     First image inside a card becomes
+     the full-width header image.
+     No padding. Edge to edge.
+     Does not grow — stays its natural size.
+     ================================ */
+    [data-is="card"]>img:first-child {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-bottom: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        flex-shrink: 0;
+    }
+
+
+    /* ================================
+     CARD BODY ELEMENTS
+     Everything that isn't the first image
+     gets horizontal padding.
+     flex-shrink: 0 prevents content from
+     being squished when card stretches.
+     ================================ */
+    [data-is="card"]>*:not(img:first-child) {
+        padding-inline: var(--rim-space-5);
+        flex-shrink: 0;
+    }
+
+    /* First non-image child gets top padding */
+    [data-is="card"]>img:first-child+* {
+        padding-top: var(--rim-space-5);
+    }
+
+    /* If no image, first child gets top padding */
+    [data-is="card"]>*:first-child:not(img) {
+        padding-top: var(--rim-space-5);
+    }
+
+    /* Last child gets bottom padding */
+    [data-is="card"]>*:last-child {
+        padding-bottom: var(--rim-space-5);
+    }
+
+
+    /* ================================
+     CARD SPACER
+     The second-to-last element (usually <p>) 
+     pushes remaining space DOWN so the last 
+     element (tags, button) sits at the bottom.
+     This makes cards with different content 
+     lengths look aligned in a grid.
+     ================================ */
+    [data-is="card"]>p {
+        flex-grow: 1;
+    }
+
+
+    /* ================================
+     CARD TYPOGRAPHY
+     Headings inside cards are slightly smaller.
+     Less dramatic than page headings.
+     ================================ */
+    [data-is="card"] :is(h1, h2, h3, h4, h5, h6) {
+        margin-top: 0;
+        margin-bottom: var(--rim-space-2);
+    }
+
+    [data-is="card"] p {
+        color: var(--rim-muted);
+        font-size: var(--rim-text-sm);
+        margin-bottom: var(--rim-space-3);
+    }
+
+    [data-is="card"] p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Links inside cards */
+    [data-is="card"] a {
+        color: var(--rim-accent);
+    }
+
+
+    /* ================================
+     ELEMENTS INSIDE CARD
+     Tags, buttons, and other inline elements
+     should NOT stretch to fill card width.
+     They stay their natural size.
+     ================================ */
+    [data-is="card"]>[data-is="tag"],
+    [data-is="card"]>button,
+    [data-is="card"]>a[data-is="button"] {
+        align-self: flex-start;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    /* Divs containing tags/buttons — also don't stretch vertically */
+    [data-is="card"]>div:last-child {
+        flex-shrink: 0;
+        margin-top: auto;
+    }
+}

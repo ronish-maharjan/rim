@@ -1,0 +1,87 @@
+/* ================================================
+   RIM CSS — Table of Contents Component
+   
+   Navigation for long-form content.
+   Shows document structure at a glance.
+   Clean, compact, purposeful.
+
+   Usage:
+     <nav data-is="toc">
+       <ol>
+         <li><a href="#section-1">Introduction</a></li>
+         <li><a href="#section-2">Philosophy</a>
+           <ol>
+             <li><a href="#section-2-1">Core beliefs</a></li>
+           </ol>
+         </li>
+         <li><a href="#section-3">Getting Started</a></li>
+       </ol>
+     </nav>
+
+   Active item:
+     <li><a href="#section-2" aria-current="true">Philosophy</a></li>
+   ================================================ */
+
+@layer rim-components {
+
+    [data-is="toc"] {
+        padding: var(--rim-space-4) var(--rim-space-5);
+        border: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+        border-radius: var(--rim-radius);
+        background-color: var(--rim-surface);
+        font-size: var(--rim-text-sm);
+    }
+
+    /* TOC title — if user puts a heading before the list */
+    [data-is="toc"] :is(h2, h3, h4, h5, h6):first-child {
+        font-size: var(--rim-text-sm);
+        text-transform: uppercase;
+        letter-spacing: var(--rim-tracking-wide);
+        color: var(--rim-muted);
+        margin-top: 0;
+        margin-bottom: var(--rim-space-3);
+        padding-bottom: var(--rim-space-2);
+        border-bottom: var(--rim-border-width) var(--rim-border-style) var(--rim-border);
+    }
+
+    /* Reset list styling inside TOC */
+    [data-is="toc"] ol {
+        list-style-type: decimal;
+        padding-left: var(--rim-space-5);
+        margin-bottom: 0;
+    }
+
+    [data-is="toc"] li {
+        margin-bottom: var(--rim-space-2);
+        line-height: var(--rim-leading-normal);
+    }
+
+    [data-is="toc"] li:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Nested lists — sub-sections */
+    [data-is="toc"] ol ol {
+        margin-top: var(--rim-space-2);
+        padding-left: var(--rim-space-4);
+        list-style-type: lower-alpha;
+    }
+
+    /* TOC links — muted by default, accent on hover */
+    [data-is="toc"] a {
+        color: var(--rim-muted);
+        text-decoration: none;
+        transition: color var(--rim-transition);
+    }
+
+    [data-is="toc"] a:hover {
+        color: var(--rim-accent);
+    }
+
+    /* Active / current section */
+    [data-is="toc"] a[aria-current="true"],
+    [data-is="toc"] a[aria-current="page"] {
+        color: var(--rim-accent);
+        font-weight: var(--rim-weight-medium);
+    }
+}

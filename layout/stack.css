@@ -1,0 +1,47 @@
+/* ================================================
+   RIM CSS — Stack
+   Adds consistent vertical spacing between children.
+   No more margin-bottom on every element.
+   The stack handles the gaps.
+
+   Default gap: --rim-space-5 (24px)
+   Small gap:   --rim-space-3 (12px)
+   Large gap:   --rim-space-7 (48px)
+
+   Usage:
+     <div data-is="stack">           → default
+     <div data-is="stack" data-gap="sm">  → tight
+     <div data-is="stack" data-gap="lg">  → generous
+   ================================================ */
+
+@layer rim-layout {
+
+    [data-is="stack"] {
+        display: flex;
+        flex-direction: column;
+        gap: var(--rim-space-5);
+    }
+
+    /* Reset child margins — the stack owns the spacing.
+     This prevents double-spacing from element margins
+     combining with stack gap. */
+    [data-is="stack"]>* {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* --- Small Gap ---
+     Tight spacing for related items.
+     Form fields, compact lists, metadata. */
+    [data-is="stack"][data-gap="sm"] {
+        gap: var(--rim-space-4);
+    }
+
+    /* --- Large Gap ---
+     Generous breathing room.
+     Sections, major content blocks.
+     Japanese tea room — space IS the design. */
+    [data-is="stack"][data-gap="lg"] {
+        gap: var(--rim-space-7);
+    }
+}
